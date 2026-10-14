@@ -33,9 +33,9 @@ jobs:
       - name: Compile the compendiums
         run: npm run build:packs
 
-      # Only what Foundry loads goes in the zip; the compendium source stays out.
+      # Only what Foundry loads, plus the readme and the license; the compendium source stays out.
       - name: Build scars.zip
-        run: zip -r scars.zip system.json module templates styles lang packs -x "packs/_source/*"
+        run: zip -r scars.zip system.json README.md LICENSE module templates styles lang packs -x "packs/_source/*"
 
       - name: Attach to the release
         env:

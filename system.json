@@ -46,6 +46,8 @@
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": "sanity",
   "url": "https://github.com/ninguemdev/SCARS",
+  "license": "LICENSE",
+  "readme": "README.md",
   "bugs": "https://github.com/ninguemdev/SCARS/issues",
   "manifest": "https://github.com/ninguemdev/SCARS/releases/latest/download/system.json",
   "download": "https://github.com/ninguemdev/SCARS/releases/latest/download/scars.zip"

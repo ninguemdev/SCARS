@@ -4,7 +4,7 @@
   "description": "SCARS (Space Core Anomaly RPG System) para o Foundry VTT v14.",
   "private": true,
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ninguemdev/SCARS.git"
