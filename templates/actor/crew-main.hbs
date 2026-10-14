@@ -1,19 +1,4 @@
-<div class="crew-sheet-body">
-  <header class="crew-header">
-    <img class="crew-portrait" src="{{actor.img}}" data-edit="img" data-action="editImage" alt="{{actor.name}}">
-    <div class="crew-identity">
-      <input class="crew-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize "SCARS.Sheet.name"}}">
-      <div class="crew-status">
-        {{#if system.status.shaken}}
-          <span class="status-badge status-shaken">{{localize "SCARS.Status.shaken"}}</span>
-        {{/if}}
-        {{#if system.status.dying}}
-          <span class="status-badge status-dying">{{localize "SCARS.Status.dying"}}</span>
-        {{/if}}
-      </div>
-    </div>
-  </header>
-
+<section class="tab crew-main {{tab.cssClass}}" data-group="primary" data-tab="main">
   <section class="crew-section">
     <h2>{{localize "SCARS.Sheet.profile"}}</h2>
     <label class="field">
@@ -72,4 +57,4 @@
       </label>
     </div>
   </section>
-</div>
+</section>

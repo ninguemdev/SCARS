@@ -14,14 +14,24 @@
 
 /* Crew sheet */
 .scars.crew-sheet .window-content {
+  gap: var(--scars-gap);
   background: var(--scars-color-surface);
   color: var(--scars-color-text);
 }
 
-.scars.crew-sheet .crew-sheet-body {
+.scars.crew-sheet .crew-header,
+.scars.crew-sheet .sheet-tabs {
+  flex: none;
+}
+
+/* Only the active tab is laid out; Foundry hides the others. */
+.scars.crew-sheet .tab.active {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: calc(var(--scars-gap) * 2);
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .scars.crew-sheet h2 {
@@ -162,6 +172,88 @@
 .scars.crew-sheet .resource .field {
   grid-template-columns: auto 4rem;
   justify-content: start;
+}
+
+.scars.crew-sheet .item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scars.crew-sheet .item-row {
+  display: flex;
+  align-items: center;
+  gap: var(--scars-gap);
+  padding: 0.25rem 0.5rem;
+  background: var(--scars-color-surface-raised);
+  border-radius: var(--scars-radius);
+}
+
+.scars.crew-sheet .item-row-image {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  object-fit: cover;
+  border: none;
+}
+
+.scars.crew-sheet .item-row-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.scars.crew-sheet .item-row-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scars.crew-sheet .item-row-detail,
+.scars.crew-sheet .uses-label,
+.scars.crew-sheet .uses-unlimited {
+  color: var(--scars-color-muted);
+}
+
+.scars.crew-sheet .item-row-detail {
+  font-size: 0.8rem;
+}
+
+.scars.crew-sheet .uses-control,
+.scars.crew-sheet .item-row-controls {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.scars.crew-sheet .uses-value {
+  min-width: 2.5rem;
+  font-family: var(--scars-font-mono);
+  text-align: center;
+}
+
+.scars.crew-sheet .uses-unlimited {
+  font-style: italic;
+}
+
+.scars.crew-sheet .item-row button.icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.scars.crew-sheet .empty-hint {
+  margin: 0;
+  color: var(--scars-color-muted);
+  font-style: italic;
+}
+
+.scars.crew-sheet .profession-domain {
+  margin: 0;
 }
 
 /* Item sheet */

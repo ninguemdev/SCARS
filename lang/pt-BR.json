@@ -33,7 +33,21 @@
       "sanity": "Sanidade",
       "bonus": "Bônus",
       "item": "Ficha de item",
-      "description": "Descrição"
+      "description": "Descrição",
+      "Tab": {
+        "main": "Principal",
+        "profession": "Profissão",
+        "abilities": "Habilidades",
+        "gear": "Equipamento"
+      },
+      "noProfession": "Sem profissão. Arraste uma profissão para esta ficha.",
+      "noAbilities": "Nenhuma habilidade. Arraste habilidades para esta ficha.",
+      "noGear": "Nenhum equipamento. Arraste equipamentos para esta ficha.",
+      "unlimited": "Ilimitada",
+      "editItem": "Editar",
+      "deleteItem": "Remover",
+      "decreaseUses": "Gastar um uso",
+      "increaseUses": "Recuperar um uso"
     },
     "Status": {
       "shaken": "Abalado",
@@ -51,6 +65,9 @@
       "formula": "Fórmula",
       "usesLabel": "Nome dos usos",
       "usesLabelHint": "Ex.: Cargas, Casco. Com máximo 0, o equipamento não tem controle de usos."
+    },
+    "Notify": {
+      "professionReplaced": "Profissão substituída por {name}."
     }
   },
   "TYPES": {
