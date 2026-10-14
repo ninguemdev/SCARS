@@ -697,3 +697,34 @@
 .scars-card.effect-healing .card-effect-label {
   color: var(--scars-color-accent);
 }
+
+.scars-card .card-apply-effect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid var(--scars-color-accent);
+  background: none;
+  /* Foundry's chat styles give buttons a dark text color. */
+  color: var(--scars-color-accent);
+}
+
+.scars-card .card-apply-effect:hover,
+.scars-card .card-apply-effect:focus-visible {
+  background: var(--scars-color-accent);
+  color: var(--scars-color-surface);
+}
+
+/* Not a field caption, so it keeps the normal text color. */
+.scars.threat-sheet .field > .damage-input {
+  display: flex;
+  color: inherit;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.scars.threat-sheet .damage-input button.icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: none;
+}

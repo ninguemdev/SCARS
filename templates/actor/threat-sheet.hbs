@@ -18,7 +18,13 @@
     </label>
     <label class="field">
       <span>{{localize "SCARS.Sheet.damage"}}</span>
-      <input type="text" name="system.damage" value="{{system.damage}}" placeholder="1d6">
+      <span class="damage-input">
+        <input type="text" name="system.damage" value="{{system.damage}}" placeholder="1d6">
+        <button type="button" class="icon" data-action="rollDamage"
+                aria-label="{{localize "SCARS.Sheet.rollDamage"}}" data-tooltip="{{localize "SCARS.Sheet.rollDamage"}}">
+          <i class="fa-solid fa-dice" inert></i>
+        </button>
+      </span>
     </label>
     <label class="field">
       <span>{{localize "SCARS.Sheet.defeat"}}</span>

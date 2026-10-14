@@ -1,5 +1,8 @@
 import { ATTRIBUTES, SYSTEM_ID } from "../config.mjs";
+import { hitPointsAfterEffect } from "../rules/apply-effect.mjs";
+import { EFFECT_TYPES } from "../rules/item-use.mjs";
 import { describeSanityDrop } from "../rules/sanity-change.mjs";
+import { isValidEffectFormula, postEffectCard, rollEffect } from "../rolls/effect-roll.mjs";
 import { HORROR_ATTRIBUTE, rollHorrorTest } from "../rolls/horror-roll.mjs";
 import { promptTestOptions } from "../rolls/test-dialog.mjs";
 import { rollAttributeTest } from "../rolls/test-roll.mjs";
@@ -32,6 +35,29 @@ export class ScarsActor extends foundry.documents.Actor {
       : { difficulty, advantage, heavyScene };
     if (!options) return null;
     return rollHorrorTest(this, options);
+  }
+
+  /**
+   * Rolls the damage formula of a threat and posts the card that applies it.
+   * Resolves to the chat message, or null when the formula is invalid.
+   */
+  async rollDamage() {
+    if (this.type !== "threat") throw new Error(`Actor ${this.name} of type "${this.type}" has no damage roll`);
+    const formula = this.system.damage;
+    if (!isValidEffectFormula(formula, this.name)) return null;
+    const effect = await rollEffect({ formula, type: EFFECT_TYPES.damage, rollData: this.getRollData() });
+    return postEffectCard(this, { name: this.name, img: this.img, effect, flags: { threatDamage: { actorUuid: this.uuid } } });
+  }
+
+  /**
+   * Applies a damage or healing total to the HP. The result stays between 0 and the maximum.
+   * Resolves to the HP before and after, for the notice shown to the user.
+   */
+  async applyEffect({ type, total }) {
+    const { value: before, max } = this.system.hp;
+    const after = hitPointsAfterEffect({ value: before, max }, { type, total });
+    await this.update({ "system.hp.value": after });
+    return { before, after, max };
   }
 
   /** Remembers the Sanity before the update, to detect the thresholds it crosses. */

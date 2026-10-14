@@ -6,6 +6,7 @@ import { ProfessionData } from "./data/profession-data.mjs";
 import { ThreatData } from "./data/threat-data.mjs";
 import { ScarsActor } from "./documents/scars-actor.mjs";
 import { ScarsItem } from "./documents/scars-item.mjs";
+import { activateChatCardListeners } from "./rolls/chat-cards.mjs";
 import { CrewSheet } from "./sheets/crew-sheet.mjs";
 import { ScarsItemSheet } from "./sheets/item-sheet.mjs";
 import { ThreatSheet } from "./sheets/threat-sheet.mjs";
@@ -17,6 +18,8 @@ Hooks.once("init", () => {
   registerDataModels();
   registerSheets();
 });
+
+Hooks.on("renderChatMessageHTML", activateChatCardListeners);
 
 function registerDataModels() {
   Object.assign(CONFIG.Actor.dataModels, { crew: CrewData, threat: ThreatData });

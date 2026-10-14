@@ -9,6 +9,10 @@
       <span class="card-effect-label">{{localize effect.label}}</span>
       <span class="card-total">{{effect.total}}</span>
     </div>
+    <button type="button" class="card-apply-effect" data-scars-apply-effect>
+      <i class="fa-solid fa-crosshairs" inert></i>
+      <span>{{localize "SCARS.Chat.applyToSelected"}}</span>
+    </button>
   {{else if descriptionHTML}}
     <div class="card-description">{{{descriptionHTML}}}</div>
   {{/if}}

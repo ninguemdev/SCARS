@@ -8,7 +8,10 @@ export class ThreatSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     classes: ["scars", "threat-sheet"],
     position: { width: 480, height: 560 },
     window: { resizable: true },
-    form: { submitOnChange: true }
+    form: { submitOnChange: true },
+    actions: {
+      rollDamage: ThreatSheet.#onRollDamage
+    }
   };
 
   static PARTS = {
@@ -29,5 +32,9 @@ export class ThreatSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         relativeTo: actor
       })
     });
+  }
+
+  static async #onRollDamage() {
+    await this.actor.rollDamage();
   }
 }
