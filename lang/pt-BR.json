@@ -1,0 +1,15 @@
+{
+  "LIMIAR": {
+    "Attribute": {
+      "body": "Corpo",
+      "reflexes": "Reflexos",
+      "mind": "Mente",
+      "nerve": "Nervos"
+    },
+    "Difficulty": {
+      "easy": "Fácil",
+      "normal": "Normal",
+      "hard": "Difícil"
+    }
+  }
+}
