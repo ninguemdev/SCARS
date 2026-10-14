@@ -20,9 +20,5 @@ export function resolveTestOutcome({ total, difficulty, natural }) {
 
 function buildResult(outcome) {
   const isSuccess = outcome === TEST_OUTCOMES.criticalSuccess || outcome === TEST_OUTCOMES.success;
-  return {
-    outcome,
-    isSuccess,
-    advancesShipClock: outcome === TEST_OUTCOMES.criticalFailure
-  };
+  return { outcome, isSuccess };
 }

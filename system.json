@@ -1,7 +1,7 @@
 {
   "id": "scars",
   "title": "SCARS",
-  "description": "Space Core Anomaly RPG System. Sistema de horror espacial: quatro atributos, d20 contra dificuldade, vantagem por profissão, Sanidade e o Relógio da Nave.",
+  "description": "Space Core Anomaly RPG System. Sistema de horror espacial: quatro atributos, d20 contra dificuldade, vantagem por profissão, Pontos de Vida e Sanidade.",
   "version": "0.1.0",
   "compatibility": {
     "minimum": "14",

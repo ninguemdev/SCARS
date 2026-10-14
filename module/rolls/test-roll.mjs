@@ -12,7 +12,7 @@ const OUTCOME_NOTES = Object.freeze({
 
 /**
  * Rolls an attribute test and posts the result card to the chat.
- * The outcome is stored in the message flags for the Ship Clock and rerolls.
+ * The outcome is stored in the message flags for rerolls.
  */
 export async function rollAttributeTest(actor, attributeKey, options) {
   const test = await evaluateTest(actor, attributeKey, options);
@@ -64,8 +64,7 @@ export function buildTestFlags(test) {
     advantage: test.advantage,
     natural: test.natural,
     total: test.roll.total,
-    outcome: test.outcome,
-    advancesShipClock: test.advancesShipClock
+    outcome: test.outcome
   };
 }
 
