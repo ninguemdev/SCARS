@@ -617,3 +617,33 @@
 .scars-card.outcome-criticalFailure .card-note {
   color: var(--scars-color-warning);
 }
+
+.scars.crew-sheet .horror-roll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 100%;
+  border: 1px solid var(--scars-color-warning);
+  background: none;
+  color: var(--scars-color-warning);
+}
+
+.scars.crew-sheet .horror-roll:hover,
+.scars.crew-sheet .horror-roll:focus-visible {
+  background: var(--scars-color-warning);
+  color: var(--scars-color-surface);
+}
+
+.scars-card .horror-details {
+  padding-top: var(--scars-gap);
+  border-top: 1px solid var(--scars-color-surface-raised);
+}
+
+.scars-card.gm-alert {
+  border-left-color: var(--scars-color-warning);
+}
+
+.scars-card.gm-alert .card-title {
+  color: var(--scars-color-warning);
+}

@@ -75,7 +75,10 @@
       "usesLabelHint": "Ex.: Cargas, Casco. Com máximo 0, o equipamento não tem controle de usos."
     },
     "Notify": {
-      "professionReplaced": "Profissão substituída por {name}."
+      "professionReplaced": "Profissão substituída por {name}.",
+      "gmAlertTitle": "Só para o mestre",
+      "becameShaken": "{name} ficou Abalado: Sanidade {value} de {max}.",
+      "sanityZero": "{name} chegou a 0 de Sanidade e perde o controle por uma cena. O Relógio da Nave avança 1 casa."
     },
     "Roll": {
       "roll": "Rolar",
@@ -96,7 +99,13 @@
       "Note": {
         "criticalSuccess": "Natural 20: sucesso automático, com algo a mais.",
         "criticalFailure": "Natural 1: falha automática, e o Relógio da Nave avança 1 casa."
-      }
+      },
+      "horror": "Teste de horror",
+      "horrorTitle": "Teste de horror: {name}",
+      "heavyScene": "Cena pesada",
+      "heavySceneHint": "Na falha, perde 1d6 de Sanidade em vez de 1d4.",
+      "sanityLoss": "Perda de Sanidade",
+      "keptControl": "Mantém o controle: nenhuma perda de Sanidade."
     }
   },
   "TYPES": {

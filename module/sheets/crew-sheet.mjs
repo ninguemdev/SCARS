@@ -14,6 +14,7 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     form: { submitOnChange: true },
     actions: {
       rollTest: CrewSheet.#onRollTest,
+      rollHorror: CrewSheet.#onRollHorror,
       editItem: CrewSheet.#onEditItem,
       deleteItem: CrewSheet.#onDeleteItem,
       changeUses: CrewSheet.#onChangeUses
@@ -95,6 +96,10 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async #onRollTest(event, target) {
     await this.actor.rollTest(target.dataset.attribute);
+  }
+
+  static async #onRollHorror() {
+    await this.actor.rollHorror();
   }
 
   static #onEditItem(event, target) {
