@@ -1,0 +1,43 @@
+name: Release
+
+# Publishing a GitHub release tagged like v1.2.3 builds the system and attaches system.json and scars.zip to it.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install tools
+        run: npm ci
+
+      - name: Lint and test
+        run: |
+          npm run lint
+          npm test
+
+      - name: Set the release version and URLs in system.json
+        run: node tools/release-manifest.mjs "$GITHUB_REF_NAME"
+
+      - name: Compile the compendiums
+        run: npm run build:packs
+
+      # Only what Foundry loads goes in the zip; the compendium source stays out.
+      - name: Build scars.zip
+        run: zip -r scars.zip system.json module templates styles lang packs -x "packs/_source/*"
+
+      - name: Attach to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$GITHUB_REF_NAME" system.json scars.zip --clobber
