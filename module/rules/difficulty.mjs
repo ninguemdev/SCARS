@@ -10,3 +10,13 @@ export function resolveDifficulty(choice, customValue) {
   }
   return DIFFICULTIES[choice]?.value ?? null;
 }
+
+/**
+ * The difficulty given to a roll from code, such as a macro: a preset key ("hard") or a positive integer.
+ * Undefined means the dialog should ask; null means the option is invalid.
+ */
+export function difficultyFromOption(option) {
+  if (option === undefined) return undefined;
+  if (typeof option === "string") return resolveDifficulty(option);
+  return resolveDifficulty(CUSTOM_DIFFICULTY, option);
+}

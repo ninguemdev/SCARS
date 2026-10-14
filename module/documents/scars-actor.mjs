@@ -1,6 +1,7 @@
 import { ATTRIBUTES, SYSTEM_ID } from "../config.mjs";
 import { hitPointsAfterEffect } from "../rules/apply-effect.mjs";
 import { EFFECT_TYPES } from "../rules/item-use.mjs";
+import { usesAfterMissionReset } from "../rules/mission-reset.mjs";
 import { describeSanityDrop } from "../rules/sanity-change.mjs";
 import { isValidEffectFormula, postEffectCard, rollEffect } from "../rolls/effect-roll.mjs";
 import { HORROR_ATTRIBUTE, rollHorrorTest } from "../rolls/horror-roll.mjs";
@@ -58,6 +59,18 @@ export class ScarsActor extends foundry.documents.Actor {
     const after = hitPointsAfterEffect({ value: before, max }, { type, total });
     await this.update({ "system.hp.value": after });
     return { before, after, max };
+  }
+
+  /**
+   * Gives back the uses of the abilities that restore on a new mission, such as the profession masteries.
+   * Resolves to the number of abilities restored.
+   */
+  async restoreMissionUses() {
+    const updates = this.itemTypes.ability
+      .map((ability) => ({ _id: ability.id, "system.uses.value": usesAfterMissionReset(ability.system) }))
+      .filter((update) => update["system.uses.value"] !== null);
+    if (updates.length) await this.updateEmbeddedDocuments("Item", updates);
+    return updates.length;
   }
 
   /** Remembers the Sanity before the update, to detect the thresholds it crosses. */

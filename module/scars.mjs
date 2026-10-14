@@ -6,13 +6,14 @@ import { ProfessionData } from "./data/profession-data.mjs";
 import { ThreatData } from "./data/threat-data.mjs";
 import { ScarsActor } from "./documents/scars-actor.mjs";
 import { ScarsItem } from "./documents/scars-item.mjs";
+import { api } from "./macros/api.mjs";
 import { activateChatCardListeners } from "./rolls/chat-cards.mjs";
 import { CrewSheet } from "./sheets/crew-sheet.mjs";
 import { ScarsItemSheet } from "./sheets/item-sheet.mjs";
 import { ThreatSheet } from "./sheets/threat-sheet.mjs";
 
 Hooks.once("init", () => {
-  game.scars = { config: SCARS };
+  game.scars = { config: SCARS, api };
   CONFIG.Actor.documentClass = ScarsActor;
   CONFIG.Item.documentClass = ScarsItem;
   registerDataModels();
