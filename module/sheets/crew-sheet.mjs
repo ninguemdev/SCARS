@@ -143,7 +143,8 @@ function buildItemRow(item) {
     usable: item.isUsable,
     canUse: item.hasUsesLeft,
     uses: uses?.limited ? buildUsesControl(item) : null,
-    unlimited: Boolean(uses?.unlimited)
+    unlimited: Boolean(uses?.unlimited),
+    oncePerTarget: Boolean(uses?.oncePerTarget)
   };
 }
 

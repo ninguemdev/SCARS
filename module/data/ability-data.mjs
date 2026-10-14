@@ -5,13 +5,16 @@ import { changeUsesBy, clampUsesChange } from "./uses.mjs";
 
 export class AbilityData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
-    const { SchemaField } = foundry.data.fields;
+    const { ArrayField, SchemaField, StringField } = foundry.data.fields;
     return {
       description: htmlField(),
       uses: new SchemaField({
         value: integerField(MASTERY_USES),
         max: integerField(MASTERY_USES),
-        unlimited: booleanField(false)
+        unlimited: booleanField(false),
+        // The commander's mastery has no counter: each person receives it once per mission.
+        oncePerTarget: booleanField(false),
+        targets: new ArrayField(new StringField({ required: true, blank: false }))
       }),
       resetsOnMission: booleanField(true),
       testNotice: textField()
@@ -26,7 +29,7 @@ export class AbilityData extends foundry.abstract.TypeDataModel {
 
   prepareDerivedData() {
     this.uses.value = clampResource(this.uses.value, this.uses.max);
-    this.uses.limited = !this.uses.unlimited;
+    this.uses.limited = !this.uses.unlimited && !this.uses.oncePerTarget;
   }
 
   changeUses(delta) {

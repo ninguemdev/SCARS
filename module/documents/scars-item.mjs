@@ -12,8 +12,9 @@ import { hasUsesLeft, resolveEffectType } from "../rules/item-use.mjs";
 const USABLE_TYPES = Object.freeze(["ability", "gear"]);
 
 export class ScarsItem extends foundry.documents.Item {
+  /** The commander's once-per-person mastery is used from the failed test card, not from the sheet. */
   get isUsable() {
-    return USABLE_TYPES.includes(this.type);
+    return USABLE_TYPES.includes(this.type) && !this.system.uses?.oncePerTarget;
   }
 
   /** False when the item has limited uses and none left. */

@@ -41,10 +41,17 @@ export class ScarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       system: item.system,
       typeLabel: `TYPES.Item.${item.type}`,
       formulaTypes: GEAR_FORMULA_TYPES,
+      targetNames: describeTargets(item),
       descriptionHTML: await TextEditor.implementation.enrichHTML(item.system.description, {
         secrets: item.isOwner,
         relativeTo: item
       })
     });
   }
+}
+
+/** Names of who already received a once-per-person ability; an actor that no longer exists shows its UUID. */
+function describeTargets(item) {
+  const targets = item.system.uses?.targets ?? [];
+  return targets.map((uuid) => foundry.utils.fromUuidSync(uuid)?.name ?? uuid);
 }

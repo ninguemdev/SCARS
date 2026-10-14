@@ -1,16 +1,34 @@
 import { SYSTEM_ID } from "../config.mjs";
+import { findCommanderMasteries, rerollWithCommanderMastery } from "./commander-reroll.mjs";
 
 const APPLY_EFFECT_SELECTOR = "[data-scars-apply-effect]";
+const COMMANDER_REROLL_SELECTOR = "[data-scars-commander-reroll]";
 
 /**
  * Hook for renderChatMessageHTML. The chat log is a core application, so the system cannot add its own
- * ApplicationV2 actions there; the card button gets a native listener each time the message is rendered.
+ * ApplicationV2 actions there; the card buttons get native listeners each time the message is rendered.
  */
 export function activateChatCardListeners(message, html) {
+  activateApplyEffect(message, html);
+  activateCommanderReroll(message, html);
+}
+
+function activateApplyEffect(message, html) {
   const effect = message.getFlag(SYSTEM_ID, "effect");
   const button = html.querySelector(APPLY_EFFECT_SELECTOR);
   if (!effect || !button) return;
   button.addEventListener("click", () => applyEffectToControlledTokens(effect));
+}
+
+/** Only users who own a crew member with the commander's mastery see the reroll button. */
+function activateCommanderReroll(message, html) {
+  const button = html.querySelector(COMMANDER_REROLL_SELECTOR);
+  if (!button) return;
+  if (!findCommanderMasteries().length) {
+    button.remove();
+    return;
+  }
+  button.addEventListener("click", () => rerollWithCommanderMastery(message));
 }
 
 /**

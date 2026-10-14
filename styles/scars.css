@@ -698,7 +698,8 @@
   color: var(--scars-color-accent);
 }
 
-.scars-card .card-apply-effect {
+.scars-card .card-apply-effect,
+.scars-card .card-commander-reroll {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -710,7 +711,9 @@
 }
 
 .scars-card .card-apply-effect:hover,
-.scars-card .card-apply-effect:focus-visible {
+.scars-card .card-apply-effect:focus-visible,
+.scars-card .card-commander-reroll:hover,
+.scars-card .card-commander-reroll:focus-visible {
   background: var(--scars-color-accent);
   color: var(--scars-color-surface);
 }
@@ -727,4 +730,16 @@
   width: 1.75rem;
   height: 1.75rem;
   flex: none;
+}
+
+.scars-card .card-reroll-note {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  color: var(--scars-color-accent);
+}
+
+.scars.item-sheet .target-list {
+  margin: 0;
+  padding-left: 1.25rem;
 }
