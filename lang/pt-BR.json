@@ -10,6 +10,26 @@
       "easy": "Fácil",
       "normal": "Normal",
       "hard": "Difícil"
+    },
+    "Defeat": {
+      "hp": "Por PV",
+      "successes": "Por sucessos"
+    },
+    "FormulaType": {
+      "none": "Nenhuma",
+      "damage": "Dano",
+      "healing": "Cura"
+    }
+  },
+  "TYPES": {
+    "Actor": {
+      "crew": "Tripulante",
+      "threat": "Ameaça"
+    },
+    "Item": {
+      "profession": "Profissão",
+      "ability": "Habilidade",
+      "gear": "Equipamento"
     }
   }
 }

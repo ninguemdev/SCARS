@@ -46,6 +46,36 @@ export const SHIP_CLOCK = Object.freeze({
   })
 });
 
+/** Every profession mastery has this many uses per session. */
+export const MASTERY_USES = 2;
+
+export const THREAT_DEFEAT = Object.freeze({
+  hp: "SCARS.Defeat.hp",
+  successes: "SCARS.Defeat.successes"
+});
+
+/** Starting values for a new threat, taken from the examples in the rules. */
+export const THREAT_DEFAULTS = Object.freeze({
+  damage: "1d6",
+  hp: 8,
+  successesToDefeat: 3
+});
+
+export const GEAR_FORMULA_TYPES = Object.freeze({
+  none: "SCARS.FormulaType.none",
+  damage: "SCARS.FormulaType.damage",
+  healing: "SCARS.FormulaType.healing"
+});
+
+/**
+ * Token bar and value attributes per Actor type.
+ * Crew HP and Sanity maximums are derived, so Foundry cannot find these bars from the schema alone.
+ */
+export const TRACKABLE_ATTRIBUTES = Object.freeze({
+  crew: Object.freeze({ bar: ["hp", "sanity"], value: [] }),
+  threat: Object.freeze({ bar: ["hp", "successes"], value: ["difficulty"] })
+});
+
 export const SCARS = Object.freeze({
   systemId: SYSTEM_ID,
   attributes: ATTRIBUTES,
@@ -55,5 +85,9 @@ export const SCARS = Object.freeze({
   testDie: TEST_DIE,
   resourceBase: RESOURCE_BASE,
   horrorLoss: HORROR_LOSS,
-  shipClock: SHIP_CLOCK
+  shipClock: SHIP_CLOCK,
+  masteryUses: MASTERY_USES,
+  threatDefeat: THREAT_DEFEAT,
+  threatDefaults: THREAT_DEFAULTS,
+  gearFormulaTypes: GEAR_FORMULA_TYPES
 });
