@@ -19,11 +19,15 @@
     <h2>{{localize "SCARS.Sheet.attributes"}}</h2>
     <div class="attribute-grid">
       {{#each attributes}}
-        <label class="attribute">
-          <span class="attribute-label">{{localize label}}</span>
-          <input type="number" name="system.attributes.{{key}}" value="{{value}}"
+        <div class="attribute">
+          <button type="button" class="attribute-roll" data-action="rollTest" data-attribute="{{key}}"
+                  data-tooltip="{{localize "SCARS.Roll.rollAttribute" attribute=(localize label)}}">
+            <i class="fa-solid fa-dice-d20" inert></i>
+            <span class="attribute-label">{{localize label}}</span>
+          </button>
+          <input type="number" name="system.attributes.{{key}}" value="{{value}}" aria-label="{{localize label}}"
                  min="{{@root.attributeRange.min}}" max="{{@root.attributeRange.max}}" step="1">
-        </label>
+        </div>
       {{/each}}
     </div>
     {{#unless system.attributeSpreadValid}}

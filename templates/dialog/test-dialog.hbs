@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="scars-test-difficulty">{{localize "SCARS.Roll.difficulty"}}</label>
+  <select id="scars-test-difficulty" name="difficulty">
+    {{selectOptions difficultyOptions selected=selectedDifficulty}}
+  </select>
+</div>
+<div class="form-group">
+  <label for="scars-test-custom">{{localize "SCARS.Roll.customDifficulty"}}</label>
+  <input id="scars-test-custom" type="number" name="customDifficulty" min="1" step="1">
+</div>
+<div class="form-group">
+  <label for="scars-test-advantage">{{localize "SCARS.Roll.advantage"}}</label>
+  <input id="scars-test-advantage" type="checkbox" name="advantage">
+  <p class="hint">{{localize "SCARS.Roll.advantageHint"}}</p>
+</div>
