@@ -1,0 +1,23 @@
+{
+  "_id": "ONtF7W2QO6qWo9gn",
+  "_key": "!items!ONtF7W2QO6qWo9gn",
+  "name": "Na minha nave, não",
+  "type": "ability",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "uses": {
+      "value": 0,
+      "max": 0,
+      "unlimited": false,
+      "oncePerTarget": true,
+      "targets": []
+    },
+    "resetsOnMission": true,
+    "testNotice": "",
+    "description": "<p>Maestria. Quando um aliado falha num teste de atributo, ele rola de novo com vantagem.</p><p>Vale uma vez para cada pessoa em cada missão, inclusive o próprio comandante. Use pelo botão no card do teste com falha; a \"Nova missão\" libera todos de novo.</p>"
+  },
+  "folder": "yMqzJGbNsiEEbJ5G",
+  "sort": 202000,
+  "effects": [],
+  "flags": {}
+}

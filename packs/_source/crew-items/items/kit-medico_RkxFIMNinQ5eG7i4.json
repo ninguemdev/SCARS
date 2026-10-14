@@ -1,0 +1,21 @@
+{
+  "_id": "RkxFIMNinQ5eG7i4",
+  "_key": "!items!RkxFIMNinQ5eG7i4",
+  "name": "Kit médico",
+  "type": "gear",
+  "img": "icons/svg/heal.svg",
+  "system": {
+    "formula": "1d6",
+    "formulaType": "healing",
+    "uses": {
+      "value": 3,
+      "max": 3
+    },
+    "usesLabel": "Usos",
+    "description": "<p>Cada uso cura 1d6 PV.</p>"
+  },
+  "folder": "HZdMGkxxLfhW5Cvu",
+  "sort": 303000,
+  "effects": [],
+  "flags": {}
+}

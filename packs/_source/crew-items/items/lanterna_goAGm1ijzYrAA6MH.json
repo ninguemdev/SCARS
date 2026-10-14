@@ -1,0 +1,21 @@
+{
+  "_id": "goAGm1ijzYrAA6MH",
+  "_key": "!items!goAGm1ijzYrAA6MH",
+  "name": "Lanterna",
+  "type": "gear",
+  "img": "icons/svg/light.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Ilumina o caminho.</p>"
+  },
+  "folder": "TJxOXboDmrGHYEMH",
+  "sort": 303000,
+  "effects": [],
+  "flags": {}
+}

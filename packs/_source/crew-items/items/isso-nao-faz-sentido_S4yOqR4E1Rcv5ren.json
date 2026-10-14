@@ -1,0 +1,23 @@
+{
+  "_id": "S4yOqR4E1Rcv5ren",
+  "_key": "!items!S4yOqR4E1Rcv5ren",
+  "name": "Isso não faz sentido",
+  "type": "ability",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "uses": {
+      "value": 3,
+      "max": 3,
+      "unlimited": false,
+      "oncePerTarget": false,
+      "targets": []
+    },
+    "resetsOnMission": true,
+    "testNotice": "",
+    "description": "<p>Maestria. Faz ao mestre uma pergunta sobre o motor, a dimensão ou qualquer fenômeno físico estranho, e o mestre responde a verdade.</p><p>3 perguntas por missão.</p>"
+  },
+  "folder": "y7rzAXelFkgAwS9O",
+  "sort": 202000,
+  "effects": [],
+  "flags": {}
+}

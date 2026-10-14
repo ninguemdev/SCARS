@@ -1,0 +1,21 @@
+{
+  "_id": "f7EwHiBUIMLga6YC",
+  "_key": "!items!f7EwHiBUIMLga6YC",
+  "name": "Cortador de plasma",
+  "type": "gear",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "formula": "1d10",
+    "formulaType": "damage",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Causa 1d10 de dano e também corta portas.</p>"
+  },
+  "folder": "6WljLOaF0ztZre1V",
+  "sort": 303000,
+  "effects": [],
+  "flags": {}
+}

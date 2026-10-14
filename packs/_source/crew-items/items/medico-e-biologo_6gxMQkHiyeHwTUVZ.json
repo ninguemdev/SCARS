@@ -1,0 +1,15 @@
+{
+  "_id": "6gxMQkHiyeHwTUVZ",
+  "_key": "!items!6gxMQkHiyeHwTUVZ",
+  "name": "Médico e biólogo",
+  "type": "profession",
+  "img": "icons/svg/heal.svg",
+  "system": {
+    "domain": "Corpos, ferimentos, química, venenos e tecido vivo.",
+    "description": "<p>Quem mantém a tripulação viva e entende o que cresce nas paredes. Rola com vantagem quando o domínio se aplica.</p>"
+  },
+  "folder": "HZdMGkxxLfhW5Cvu",
+  "sort": 101000,
+  "effects": [],
+  "flags": {}
+}

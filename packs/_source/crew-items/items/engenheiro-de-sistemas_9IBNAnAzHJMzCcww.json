@@ -1,0 +1,15 @@
+{
+  "_id": "9IBNAnAzHJMzCcww",
+  "_key": "!items!9IBNAnAzHJMzCcww",
+  "name": "Engenheiro de sistemas",
+  "type": "profession",
+  "img": "icons/svg/clockwork.svg",
+  "system": {
+    "domain": "Computadores, máquinas, portas, energia da nave e a planta da nave.",
+    "description": "<p>Quem conhece cada cabo e cada parafuso da nave. Rola com vantagem quando o domínio se aplica.</p>"
+  },
+  "folder": "6WljLOaF0ztZre1V",
+  "sort": 101000,
+  "effects": [],
+  "flags": {}
+}

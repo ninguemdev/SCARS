@@ -1,0 +1,21 @@
+{
+  "_id": "MONeP4nWI1ErTDEf",
+  "_key": "!items!MONeP4nWI1ErTDEf",
+  "name": "Pulsador EMP portátil",
+  "type": "gear",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 3,
+      "max": 3
+    },
+    "usesLabel": "Cargas",
+    "description": "<p>Dispara um pulso eletromagnético que derruba eletrônicos próximos.</p>"
+  },
+  "folder": "y7rzAXelFkgAwS9O",
+  "sort": 305000,
+  "effects": [],
+  "flags": {}
+}

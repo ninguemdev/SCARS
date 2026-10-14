@@ -1,0 +1,23 @@
+{
+  "_id": "H7VlDcZbzqTQeTvI",
+  "_key": "!items!H7VlDcZbzqTQeTvI",
+  "name": "Protocolo de comando",
+  "type": "ability",
+  "img": "icons/svg/padlock.svg",
+  "system": {
+    "uses": {
+      "value": 0,
+      "max": 0,
+      "unlimited": true,
+      "oncePerTarget": false,
+      "targets": []
+    },
+    "resetsOnMission": false,
+    "testNotice": "",
+    "description": "<p>Ordens diretas à nave: trancar ou abrir setores, cortar energia, esvaziar o ar de um compartimento, ejetar módulos, abortar a missão. Usos ilimitados.</p><p>Quando o protocolo exige teste é decisão do mestre, que pode escrever o aviso no campo \"Aviso de teste\".</p>"
+  },
+  "folder": "yMqzJGbNsiEEbJ5G",
+  "sort": 203000,
+  "effects": [],
+  "flags": {}
+}

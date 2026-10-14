@@ -37,7 +37,7 @@ export default [
     }
   },
   {
-    files: ["tests/**/*.mjs", "eslint.config.mjs"],
+    files: ["tests/**/*.mjs", "tools/**/*.mjs", "eslint.config.mjs"],
     languageOptions: {
       globals: globals.node
     }

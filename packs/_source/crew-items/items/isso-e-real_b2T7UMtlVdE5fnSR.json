@@ -1,0 +1,23 @@
+{
+  "_id": "b2T7UMtlVdE5fnSR",
+  "_key": "!items!b2T7UMtlVdE5fnSR",
+  "name": "Isso é real?",
+  "type": "ability",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "uses": {
+      "value": 3,
+      "max": 3,
+      "unlimited": false,
+      "oncePerTarget": false,
+      "targets": []
+    },
+    "resetsOnMission": true,
+    "testNotice": "",
+    "description": "<p>Maestria. Pergunta ao mestre se algo é real ou alucinação e recebe a verdade.</p><p>3 usos por missão.</p>"
+  },
+  "folder": "sLFL6caB3W78sfHo",
+  "sort": 202000,
+  "effects": [],
+  "flags": {}
+}

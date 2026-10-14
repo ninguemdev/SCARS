@@ -1,0 +1,21 @@
+{
+  "_id": "Tu2bSA28hVQehi2X",
+  "_key": "!items!Tu2bSA28hVQehi2X",
+  "name": "Pistola sinalizadora",
+  "type": "gear",
+  "img": "icons/svg/fire.svg",
+  "system": {
+    "formula": "1d6",
+    "formulaType": "damage",
+    "uses": {
+      "value": 9,
+      "max": 9
+    },
+    "usesLabel": "Munição",
+    "description": "<p>Dispara sinalizadores: causa 1d6 de dano e ilumina.</p>"
+  },
+  "folder": "yMqzJGbNsiEEbJ5G",
+  "sort": 304000,
+  "effects": [],
+  "flags": {}
+}

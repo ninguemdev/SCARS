@@ -1,0 +1,21 @@
+{
+  "_id": "HEvCiz5vIUTQJRq4",
+  "_key": "!items!HEvCiz5vIUTQJRq4",
+  "name": "Chave de comando",
+  "type": "gear",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Abre qualquer porta que ainda obedeça.</p>"
+  },
+  "folder": "yMqzJGbNsiEEbJ5G",
+  "sort": 305000,
+  "effects": [],
+  "flags": {}
+}

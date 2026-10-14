@@ -1,0 +1,15 @@
+{
+  "_id": "uRVj0vuoZ7yQHrEJ",
+  "_key": "!items!uRVj0vuoZ7yQHrEJ",
+  "name": "Físico dimensional",
+  "type": "profession",
+  "img": "icons/svg/portal.svg",
+  "system": {
+    "domain": "O motor dimensional, energia, radiação, matemática e fenômenos físicos, sensores da nave e ler estrelas.",
+    "description": "<p>Quem entende o motor que rasgou o espaço. Rola com vantagem quando o domínio se aplica.</p>"
+  },
+  "folder": "y7rzAXelFkgAwS9O",
+  "sort": 101000,
+  "effects": [],
+  "flags": {}
+}

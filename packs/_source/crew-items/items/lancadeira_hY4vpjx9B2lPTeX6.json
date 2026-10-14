@@ -1,0 +1,21 @@
+{
+  "_id": "hY4vpjx9B2lPTeX6",
+  "_key": "!items!hY4vpjx9B2lPTeX6",
+  "name": "Lançadeira",
+  "type": "gear",
+  "img": "icons/svg/thrust.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 3,
+      "max": 3
+    },
+    "usesLabel": "Casco",
+    "description": "<p>Os usos representam o casco: aguenta 3 avarias, marcadas pelo mestre.</p><p>Só o comandante faz manobras nela.</p>"
+  },
+  "folder": "yMqzJGbNsiEEbJ5G",
+  "sort": 306000,
+  "effects": [],
+  "flags": {}
+}

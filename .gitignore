@@ -3,3 +3,7 @@ dist/
 *.log
 .DS_Store
 Thumbs.db
+
+# Compendiums are compiled from packs/_source by `npm run build:packs`.
+packs/*
+!packs/_source/

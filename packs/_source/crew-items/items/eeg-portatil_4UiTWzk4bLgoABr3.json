@@ -1,0 +1,21 @@
+{
+  "_id": "4UiTWzk4bLgoABr3",
+  "_key": "!items!4UiTWzk4bLgoABr3",
+  "name": "EEG portátil",
+  "type": "gear",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Lê a atividade neural.</p>"
+  },
+  "folder": "sLFL6caB3W78sfHo",
+  "sort": 303000,
+  "effects": [],
+  "flags": {}
+}
