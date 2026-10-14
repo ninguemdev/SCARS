@@ -38,15 +38,6 @@ export const HORROR_LOSS = Object.freeze({
   heavy: "1d6"
 });
 
-export const SHIP_CLOCK = Object.freeze({
-  segments: 8,
-  milestones: Object.freeze({
-    protocolRequiresTest: 4,
-    shuttleBreached: 6,
-    end: 8
-  })
-});
-
 /**
  * Uses per mission of a profession mastery; the "Nova missão" command restores them.
  * The commander's mastery is the exception: once per ally in each mission.
@@ -89,7 +80,6 @@ export const SCARS = Object.freeze({
   testDie: TEST_DIE,
   resourceBase: RESOURCE_BASE,
   horrorLoss: HORROR_LOSS,
-  shipClock: SHIP_CLOCK,
   masteryUses: MASTERY_USES,
   threatDefeat: THREAT_DEFEAT,
   threatDefaults: THREAT_DEFAULTS,

@@ -88,7 +88,7 @@ export class ScarsActor extends foundry.documents.Actor {
       speaker: ChatMessage.implementation.getSpeaker({ actor: this }),
       content,
       whisper: gameMasters,
-      flags: { [SYSTEM_ID]: { sanityAlert: { becameShaken, reachedZero, advancesShipClock: reachedZero } } }
+      flags: { [SYSTEM_ID]: { sanityAlert: { becameShaken, reachedZero } } }
     });
   }
 

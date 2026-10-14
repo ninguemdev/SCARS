@@ -68,7 +68,7 @@
       "unlimited": "Usos ilimitados",
       "resetsOnMission": "Restaurar na nova missão",
       "testNotice": "Aviso de teste",
-      "testNoticeHint": "Mostrado ao usar a habilidade. Ex.: com o relógio em 4 ou mais, exige teste de Nervos 15.",
+      "testNoticeHint": "Mostrado ao usar a habilidade. Ex.: exige teste de Nervos 15.",
       "formulaType": "Tipo de fórmula",
       "formula": "Fórmula",
       "usesLabel": "Nome dos usos",
@@ -78,7 +78,7 @@
       "professionReplaced": "Profissão substituída por {name}.",
       "gmAlertTitle": "Só para o mestre",
       "becameShaken": "{name} ficou Abalado: Sanidade {value} de {max}.",
-      "sanityZero": "{name} chegou a 0 de Sanidade e perde o controle por uma cena. O Relógio da Nave avança 1 casa."
+      "sanityZero": "{name} chegou a 0 de Sanidade e perde o controle por uma cena."
     },
     "Roll": {
       "roll": "Rolar",
@@ -98,7 +98,7 @@
       },
       "Note": {
         "criticalSuccess": "Natural 20: sucesso automático, com algo a mais.",
-        "criticalFailure": "Natural 1: falha automática, e o Relógio da Nave avança 1 casa."
+        "criticalFailure": "Natural 1: falha automática."
       },
       "horror": "Teste de horror",
       "horrorTitle": "Teste de horror: {name}",
