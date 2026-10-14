@@ -1,15 +1,15 @@
 /**
- * Rule constants for the Limiar system.
+ * Rule constants for the SCARS system.
  * This module must stay free of Foundry globals so the rules layer and tests can import it.
  */
 
-export const SYSTEM_ID = "limiar";
+export const SYSTEM_ID = "scars";
 
 export const ATTRIBUTES = Object.freeze({
-  body: "LIMIAR.Attribute.body",
-  reflexes: "LIMIAR.Attribute.reflexes",
-  mind: "LIMIAR.Attribute.mind",
-  nerve: "LIMIAR.Attribute.nerve"
+  body: "SCARS.Attribute.body",
+  reflexes: "SCARS.Attribute.reflexes",
+  mind: "SCARS.Attribute.mind",
+  nerve: "SCARS.Attribute.nerve"
 });
 
 export const ATTRIBUTE_RANGE = Object.freeze({ min: 0, max: 3 });
@@ -18,9 +18,9 @@ export const ATTRIBUTE_RANGE = Object.freeze({ min: 0, max: 3 });
 export const ATTRIBUTE_SPREAD = Object.freeze([3, 2, 1, 0]);
 
 export const DIFFICULTIES = Object.freeze({
-  easy: Object.freeze({ value: 10, label: "LIMIAR.Difficulty.easy" }),
-  normal: Object.freeze({ value: 15, label: "LIMIAR.Difficulty.normal" }),
-  hard: Object.freeze({ value: 20, label: "LIMIAR.Difficulty.hard" })
+  easy: Object.freeze({ value: 10, label: "SCARS.Difficulty.easy" }),
+  normal: Object.freeze({ value: 15, label: "SCARS.Difficulty.normal" }),
+  hard: Object.freeze({ value: 20, label: "SCARS.Difficulty.hard" })
 });
 
 export const TEST_DIE = Object.freeze({
@@ -46,7 +46,7 @@ export const SHIP_CLOCK = Object.freeze({
   })
 });
 
-export const LIMIAR = Object.freeze({
+export const SCARS = Object.freeze({
   systemId: SYSTEM_ID,
   attributes: ATTRIBUTES,
   attributeRange: ATTRIBUTE_RANGE,

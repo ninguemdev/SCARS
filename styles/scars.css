@@ -1,0 +1,13 @@
+/* Theme tokens shared by every SCARS sheet, dialog and chat card. */
+.scars {
+  --scars-color-surface: #14181f;
+  --scars-color-surface-raised: #1d232d;
+  --scars-color-text: #d9dee7;
+  --scars-color-muted: #8b94a3;
+  --scars-color-accent: #4fd1c5;
+  --scars-color-danger: #e5484d;
+  --scars-color-warning: #f5a524;
+  --scars-radius: 4px;
+  --scars-gap: 0.5rem;
+  --scars-font-mono: "Roboto Mono", ui-monospace, monospace;
+}

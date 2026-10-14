@@ -1,7 +1,7 @@
 {
-  "id": "limiar",
-  "title": "Limiar",
-  "description": "Sistema de horror espacial: quatro atributos, d20 contra dificuldade, vantagem por profissão, Sanidade e o Relógio da Nave.",
+  "id": "scars",
+  "title": "SCARS",
+  "description": "Space Core Anomaly RPG System. Sistema de horror espacial: quatro atributos, d20 contra dificuldade, vantagem por profissão, Sanidade e o Relógio da Nave.",
   "version": "0.1.0",
   "compatibility": {
     "minimum": "14",
@@ -13,8 +13,8 @@
       "url": "https://github.com/ninguemdev"
     }
   ],
-  "esmodules": ["module/limiar.mjs"],
-  "styles": ["styles/limiar.css"],
+  "esmodules": ["module/scars.mjs"],
+  "styles": ["styles/scars.css"],
   "languages": [
     {
       "lang": "pt-BR",
@@ -22,8 +22,8 @@
       "path": "lang/pt-BR.json"
     }
   ],
-  "url": "https://github.com/ninguemdev/SKAR",
-  "bugs": "https://github.com/ninguemdev/SKAR/issues",
-  "manifest": "https://github.com/ninguemdev/SKAR/releases/latest/download/system.json",
-  "download": "https://github.com/ninguemdev/SKAR/releases/latest/download/limiar.zip"
+  "url": "https://github.com/ninguemdev/SCARS",
+  "bugs": "https://github.com/ninguemdev/SCARS/issues",
+  "manifest": "https://github.com/ninguemdev/SCARS/releases/latest/download/system.json",
+  "download": "https://github.com/ninguemdev/SCARS/releases/latest/download/scars.zip"
 }
