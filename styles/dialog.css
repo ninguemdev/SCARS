@@ -1,0 +1,177 @@
+/* Test dialog as a launch console: difficulty keys, then toggle switches. */
+.scars.test-dialog .window-content {
+  gap: 0.9rem;
+  padding: 1rem;
+}
+
+.scars.test-dialog .difficulty-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.scars.test-dialog legend {
+  margin-bottom: 0.5rem;
+  padding: 0;
+  color: var(--scars-neon);
+  font-family: var(--scars-font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-shadow: var(--scars-text-glow);
+  text-transform: uppercase;
+}
+
+.scars.test-dialog .difficulty-options {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.scars.test-dialog .difficulty-chip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.55rem 0.3rem 0.45rem;
+  border: 1px solid var(--scars-line);
+  background: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.scars.test-dialog .difficulty-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scars.test-dialog .chip-value {
+  color: var(--scars-neon-bright);
+  font-family: var(--scars-font-display);
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.scars.test-dialog .chip-label {
+  color: var(--scars-muted);
+  font-family: var(--scars-font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.scars.test-dialog .difficulty-chip:hover {
+  border-color: var(--scars-line-strong);
+}
+
+.scars.test-dialog .difficulty-chip:has(input:checked) {
+  border-color: var(--scars-neon);
+  background: linear-gradient(180deg, rgba(97, 255, 160, 0.28), rgba(97, 255, 160, 0.06));
+  box-shadow: inset 0 0 14px rgba(97, 255, 160, 0.25);
+}
+
+.scars.test-dialog .difficulty-chip:has(input:checked) .chip-value,
+.scars.test-dialog .difficulty-chip:has(input:checked) .chip-label {
+  color: var(--scars-neon);
+  text-shadow: var(--scars-text-glow);
+}
+
+.scars.test-dialog .difficulty-chip:has(input:focus-visible) {
+  outline: 1px solid var(--scars-neon);
+}
+
+.scars.test-dialog .custom-difficulty {
+  display: grid;
+  grid-template-columns: 1fr 6rem;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--scars-muted);
+  font-family: var(--scars-font-mono);
+  font-size: 0.8rem;
+}
+
+.scars.test-dialog .custom-difficulty input {
+  text-align: center;
+}
+
+/* Toggle switch built on a real checkbox */
+.scars.test-dialog .toggle {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.75rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--scars-line);
+  background: rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.scars.test-dialog .toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scars.test-dialog .toggle-track {
+  position: relative;
+  width: 2.6rem;
+  height: 1.3rem;
+  margin-top: 0.1rem;
+  border: 1px solid var(--scars-line-strong);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.scars.test-dialog .toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(1.3rem - 6px);
+  height: calc(1.3rem - 6px);
+  background: var(--scars-muted);
+  transition: transform 140ms ease, background 140ms ease;
+}
+
+.scars.test-dialog .toggle:has(input:checked) {
+  border-color: var(--scars-line-strong);
+}
+
+.scars.test-dialog .toggle:has(input:checked) .toggle-track {
+  border-color: var(--scars-neon);
+  box-shadow: inset 0 0 10px rgba(97, 255, 160, 0.3);
+}
+
+.scars.test-dialog .toggle:has(input:checked) .toggle-track::after {
+  background: var(--scars-neon);
+  box-shadow: var(--scars-glow);
+  transform: translateX(1.3rem);
+}
+
+.scars.test-dialog .toggle:has(input:focus-visible) .toggle-track {
+  outline: 1px solid var(--scars-neon);
+}
+
+.scars.test-dialog .toggle-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.scars.test-dialog .toggle-label {
+  color: var(--scars-text);
+  font-family: var(--scars-font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.scars.test-dialog .form-footer button {
+  height: 2.4rem;
+  font-size: 0.8rem;
+}

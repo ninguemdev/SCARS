@@ -1,14 +1,17 @@
 <header class="crew-header">
-  <img class="crew-portrait" src="{{actor.img}}" data-edit="img" data-action="editImage" alt="{{actor.name}}">
+  <div class="portrait-frame">
+    <img class="crew-portrait" src="{{actor.img}}" data-edit="img" data-action="editImage" alt="{{actor.name}}">
+    <span class="portrait-scan" aria-hidden="true"></span>
+  </div>
   <div class="crew-identity">
+    <span class="crew-callsign">
+      <i class="fa-solid fa-id-badge" inert></i>
+      {{#if professionName}}{{professionName}}{{else}}{{localize "SCARS.Sheet.noProfessionShort"}}{{/if}}
+    </span>
     <input class="crew-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize "SCARS.Sheet.name"}}">
     <div class="crew-status">
-      {{#if system.status.shaken}}
-        <span class="status-badge status-shaken">{{localize "SCARS.Status.shaken"}}</span>
-      {{/if}}
-      {{#if system.status.dying}}
-        <span class="status-badge status-dying">{{localize "SCARS.Status.dying"}}</span>
-      {{/if}}
+      <span class="status-led led-shaken{{#if system.status.shaken}} is-on{{/if}}">{{localize "SCARS.Status.shaken"}}</span>
+      <span class="status-led led-dying{{#if system.status.dying}} is-on{{/if}}">{{localize "SCARS.Status.dying"}}</span>
     </div>
   </div>
 </header>

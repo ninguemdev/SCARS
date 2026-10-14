@@ -1,4 +1,5 @@
 import { ATTRIBUTES, ATTRIBUTE_RANGE, GEAR_FORMULA_TYPES, TEST_DRAG_TYPE } from "../config.mjs";
+import { buildSegments, fillPercent } from "../helpers/segments.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -9,7 +10,7 @@ const ITEM_ROW_TEMPLATE = `${TEMPLATE_ROOT}/item-row.hbs`;
 export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static DEFAULT_OPTIONS = {
     classes: ["scars", "crew-sheet"],
-    position: { width: 560, height: 640 },
+    position: { width: 760, height: 780 },
     window: { resizable: true },
     form: { submitOnChange: true },
     actions: {
@@ -45,7 +46,12 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static TABS = {
     primary: {
-      tabs: [{ id: "main" }, { id: "profession" }, { id: "abilities" }, { id: "gear" }],
+      tabs: [
+        { id: "main", icon: "fa-solid fa-heart-pulse" },
+        { id: "profession", icon: "fa-solid fa-id-badge" },
+        { id: "abilities", icon: "fa-solid fa-bolt" },
+        { id: "gear", icon: "fa-solid fa-toolbox" }
+      ],
       initial: "main",
       labelPrefix: "SCARS.Sheet.Tab"
     }
@@ -56,16 +62,27 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const { actor } = this;
     const system = actor.system;
     const { profession, ability, gear } = actor.itemTypes;
+    const mainProfession = sortItems(profession)[0];
     return Object.assign(context, {
       actor,
       system,
+      professionName: mainProfession?.name ?? "",
+      vitals: [
+        buildVital("hp", system.hp, { label: "SCARS.Sheet.hitPoints", critical: system.status.dying }),
+        buildVital("sanity", system.sanity, {
+          label: "SCARS.Sheet.sanity",
+          low: system.status.shaken,
+          critical: system.sanity.value === 0,
+          horror: true
+        })
+      ],
       attributeRange: ATTRIBUTE_RANGE,
       attributes: Object.entries(ATTRIBUTES).map(([key, label]) => ({
         key,
         label,
         value: system.attributes[key]
       })),
-      profession: await this.#prepareProfession(sortItems(profession)[0]),
+      profession: await this.#prepareProfession(mainProfession),
       abilities: sortItems(ability).map(buildItemRow),
       gear: sortItems(gear).map(buildItemRow)
     });
@@ -128,6 +145,24 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 }
 
+/**
+ * View data for the HP or Sanity monitor. Without an explicit low state, the monitor turns low at half or less.
+ */
+function buildVital(key, { value, max, bonus }, { label, low, critical, horror = false }) {
+  const percent = fillPercent(value, max);
+  const isLow = low ?? percent <= 50;
+  return {
+    key,
+    label,
+    value,
+    max,
+    bonus,
+    horror,
+    segments: buildSegments(value, max),
+    state: critical ? "critical" : isLow ? "low" : "stable"
+  };
+}
+
 function sortItems(items) {
   return [...items].sort((a, b) => a.sort - b.sort);
 }
@@ -140,6 +175,7 @@ function buildItemRow(item) {
     name: item.name,
     img: item.img,
     detail: describeItem(item),
+    kind: item.type === "gear" ? item.system.formulaType : item.type,
     usable: item.isUsable,
     canUse: item.hasUsesLeft,
     uses: uses?.limited ? buildUsesControl(item) : null,
@@ -154,6 +190,7 @@ function buildUsesControl(item) {
     value,
     max,
     label: item.system.usesLabel ?? "",
+    pips: buildSegments(value, max),
     canDecrease: value > 0,
     canIncrease: value < max
   };

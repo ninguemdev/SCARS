@@ -1,5 +1,8 @@
 <div class="scars scars-card gm-alert">
-  <header class="card-title">{{localize "SCARS.Notify.gmAlertTitle"}}</header>
+  <header class="card-title">
+    <i class="fa-solid fa-satellite-dish" inert></i>
+    <span>{{localize "SCARS.Notify.gmAlertTitle"}}</span>
+  </header>
   {{#each alerts}}
     <p class="card-note">{{this}}</p>
   {{/each}}

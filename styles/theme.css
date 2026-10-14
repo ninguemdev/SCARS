@@ -1,0 +1,67 @@
+/*
+ * SCARS theme tokens: a dark hull lit by neon green readouts.
+ * The same tokens drive the system's own windows and the Foundry interface of a SCARS world.
+ */
+:root {
+  --scars-void: #020504;
+  --scars-bg: #050b09;
+  --scars-panel: #08130f;
+  --scars-panel-raised: #0d1f18;
+  --scars-line: rgba(97, 255, 160, 0.16);
+  --scars-line-strong: rgba(97, 255, 160, 0.48);
+  --scars-neon: #61ffa0;
+  --scars-neon-bright: #c8ffe0;
+  --scars-neon-dim: #2c9c63;
+  --scars-neon-faint: rgba(97, 255, 160, 0.08);
+  --scars-text: #d6f5e3;
+  --scars-muted: #6f9d84;
+  --scars-danger: #ff3d6e;
+  --scars-danger-faint: rgba(255, 61, 110, 0.12);
+  --scars-warning: #ffcf3d;
+  --scars-warning-faint: rgba(255, 207, 61, 0.12);
+  --scars-info: #48e8ff;
+  --scars-glow: 0 0 4px rgba(97, 255, 160, 0.75), 0 0 14px rgba(97, 255, 160, 0.3);
+  --scars-text-glow: 0 0 6px rgba(97, 255, 160, 0.65);
+  --scars-font-display: "Bruno Ace", "Signika", sans-serif;
+  --scars-font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --scars-cut: 10px;
+  --scars-gap: 0.5rem;
+  --scars-radius: 2px;
+
+  /* Faint scanlines and a measuring grid, layered under every SCARS surface. */
+  --scars-surface-texture:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px),
+    linear-gradient(rgba(97, 255, 160, 0.035) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(97, 255, 160, 0.035) 1px, transparent 1px) 0 0 / 24px 24px;
+}
+
+/* Foundry palette, retuned so the core interface matches the system. */
+body {
+  --color-warm-1: #61ffa0;
+  --color-warm-2: #2c9c63;
+  --color-warm-3: #0d3b27;
+  --color-cool-3: #1d5c41;
+  --color-cool-4: #11261d;
+  --color-cool-5: #040a08;
+  --color-cool-5-25: rgba(4, 10, 8, 0.25);
+  --color-cool-5-50: rgba(4, 10, 8, 0.5);
+  --color-cool-5-75: rgba(4, 10, 8, 0.75);
+  --color-cool-5-90: rgba(4, 10, 8, 0.92);
+  --color-light-1: #ecfff4;
+  --color-light-2: #d6f5e3;
+  --color-light-3: #a8e6c4;
+  --color-light-4: #86c9a5;
+  --color-light-5: #6f9d84;
+  --color-light-6: #3f6b54;
+  --color-scrollbar: #2c9c63;
+  --color-text-accent: #61ffa0;
+  --color-shadow-primary: #61ffa0;
+  --color-shadow-highlight: #c8ffe0;
+  --color-level-success: #61ffa0;
+  --color-level-warning: #ffcf3d;
+  --color-level-error: #ff3d6e;
+  --hr-gradient: linear-gradient(90deg, transparent 0%, #61ffa0 50%, transparent 100%);
+  --sidebar-background: rgba(4, 10, 8, 0.92);
+  --sidebar-separator: 1px solid rgba(97, 255, 160, 0.16);
+  --sidebar-entry-hover-bg: rgba(97, 255, 160, 0.08);
+}

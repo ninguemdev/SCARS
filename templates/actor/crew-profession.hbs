@@ -1,17 +1,18 @@
 <section class="tab crew-items crew-profession {{tab.cssClass}}" data-group="primary" data-tab="profession">
   {{#if profession}}
-    <ol class="item-list">
+    <ol class="item-list single">
       {{> "systems/scars/templates/actor/item-row.hbs" row=profession.row}}
     </ol>
     {{#if profession.domain}}
-      <section class="crew-section">
-        <h2>{{localize "SCARS.Item.domain"}}</h2>
+      <section class="panel domain-panel">
+        <h2 class="panel-label">{{localize "SCARS.Item.domain"}}</h2>
         <p class="profession-domain">{{profession.domain}}</p>
+        <small class="hint">{{localize "SCARS.Item.domainHint"}}</small>
       </section>
     {{/if}}
     {{#if profession.descriptionHTML}}
-      <section class="crew-section">
-        <h2>{{localize "SCARS.Sheet.description"}}</h2>
+      <section class="panel">
+        <h2 class="panel-label">{{localize "SCARS.Sheet.description"}}</h2>
         <div class="profession-description">{{{profession.descriptionHTML}}}</div>
       </section>
     {{/if}}

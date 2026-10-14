@@ -1,59 +1,62 @@
 <div class="threat-sheet-body">
   <header class="threat-header">
-    <img class="threat-portrait" src="{{actor.img}}" data-edit="img" data-action="editImage" alt="{{actor.name}}">
+    <div class="portrait-frame threat-portrait-frame">
+      <img class="threat-portrait" src="{{actor.img}}" data-edit="img" data-action="editImage" alt="{{actor.name}}">
+      <span class="portrait-reticle" aria-hidden="true"></span>
+    </div>
     <div class="threat-identity">
+      <span class="threat-tag"><i class="fa-solid fa-biohazard" inert></i>{{localize "SCARS.Sheet.threatTag"}}</span>
       <input class="threat-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize "SCARS.Sheet.name"}}">
       <div class="threat-status">
-        {{#if system.defeated}}
-          <span class="status-badge status-defeated">{{localize "SCARS.Status.defeated"}}</span>
-        {{/if}}
+        <span class="status-led led-defeated{{#if system.defeated}} is-on{{/if}}">{{localize "SCARS.Status.defeated"}}</span>
       </div>
     </div>
   </header>
 
-  <section class="threat-section">
-    <label class="field">
-      <span>{{localize "SCARS.Sheet.difficulty"}}</span>
-      <input type="number" name="system.difficulty" value="{{system.difficulty}}" min="1" step="1">
+  <section class="threat-stats">
+    <label class="stat-block">
+      <span class="panel-label">{{localize "SCARS.Sheet.difficulty"}}</span>
+      <input class="stat-value" type="number" name="system.difficulty" value="{{system.difficulty}}" min="1" step="1">
     </label>
-    <label class="field">
-      <span>{{localize "SCARS.Sheet.damage"}}</span>
-      <span class="damage-input">
-        <input type="text" name="system.damage" value="{{system.damage}}" placeholder="1d6">
+    <div class="stat-block">
+      <span class="panel-label">{{localize "SCARS.Sheet.damage"}}</span>
+      <div class="damage-input">
+        <input class="stat-value" type="text" name="system.damage" value="{{system.damage}}" placeholder="1d6"
+               aria-label="{{localize "SCARS.Sheet.damage"}}">
         <button type="button" class="icon" data-action="rollDamage"
                 aria-label="{{localize "SCARS.Sheet.rollDamage"}}" data-tooltip="{{localize "SCARS.Sheet.rollDamage"}}">
           <i class="fa-solid fa-dice" inert></i>
         </button>
-      </span>
-    </label>
-    <label class="field">
-      <span>{{localize "SCARS.Sheet.defeat"}}</span>
+      </div>
+    </div>
+    <label class="stat-block">
+      <span class="panel-label">{{localize "SCARS.Sheet.defeat"}}</span>
       <select name="system.defeat">
         {{selectOptions defeatChoices selected=system.defeat localize=true}}
       </select>
     </label>
   </section>
 
-  <section class="threat-section">
-    {{#if defeatedBySuccesses}}
-      <h2>{{localize "SCARS.Sheet.successes"}}</h2>
-      <div class="resource-values">
-        <input type="number" name="system.successes.value" value="{{system.successes.value}}" min="0" max="{{system.successes.max}}" step="1">
-        <span class="resource-separator">/</span>
-        <input type="number" name="system.successes.max" value="{{system.successes.max}}" min="1" step="1">
-      </div>
-    {{else}}
-      <h2>{{localize "SCARS.Sheet.hitPoints"}}</h2>
-      <div class="resource-values">
-        <input type="number" name="system.hp.value" value="{{system.hp.value}}" min="0" max="{{system.hp.max}}" step="1">
-        <span class="resource-separator">/</span>
-        <input type="number" name="system.hp.max" value="{{system.hp.max}}" min="0" step="1">
+  <section class="panel threat-condition">
+    <h2 class="panel-label">{{localize condition.label}}</h2>
+    <div class="vital-readout">
+      <input class="vital-value" type="number" name="system.{{condition.key}}.value" value="{{condition.value}}"
+             min="0" max="{{condition.max}}" step="1" aria-label="{{localize condition.label}}">
+      <span class="vital-max">/</span>
+      <input class="vital-max-input" type="number" name="system.{{condition.key}}.max" value="{{condition.max}}"
+             min="{{condition.minMax}}" step="1" aria-label="{{localize condition.label}}">
+    </div>
+    {{#if condition.segments.length}}
+      <div class="segment-bar" style="--segments: {{condition.segments.length}}">
+        {{#each condition.segments}}
+          <span class="segment{{#if filled}} is-filled{{/if}}"></span>
+        {{/each}}
       </div>
     {{/if}}
   </section>
 
-  <section class="threat-section threat-description">
-    <h2>{{localize "SCARS.Sheet.description"}}</h2>
+  <section class="panel threat-description">
+    <h2 class="panel-label">{{localize "SCARS.Sheet.description"}}</h2>
     <prose-mirror name="system.description" value="{{system.description}}" toggled>{{{descriptionHTML}}}</prose-mirror>
   </section>
 </div>

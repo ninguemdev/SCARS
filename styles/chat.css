@@ -1,0 +1,277 @@
+/*
+ * Chat cards as terminal transmissions: a header strip, the total read against the target,
+ * and the outcome stamped across the card.
+ */
+.scars-card {
+  --signal: var(--scars-neon);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0 0.7rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--signal) 35%, transparent);
+  border-left: 3px solid var(--signal);
+  background:
+    var(--scars-surface-texture),
+    linear-gradient(160deg, color-mix(in srgb, var(--signal) 10%, transparent), transparent 50%),
+    var(--scars-bg);
+  color: var(--scars-text);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+.scars-card .card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 -0.7rem;
+  padding: 0.4rem 0.7rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--signal) 30%, transparent);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--signal) 22%, transparent), transparent);
+  color: var(--signal);
+  font-family: var(--scars-font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--signal) 60%, transparent);
+  text-transform: uppercase;
+}
+
+/* Total against the target */
+.scars-card .card-readout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.scars-card .card-roll {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.scars-card .card-formula {
+  color: var(--scars-muted);
+  font-family: var(--scars-font-mono);
+  font-size: 0.75rem;
+}
+
+.scars-card .card-dice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.scars-card .card-die {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.7rem;
+  height: 1.7rem;
+  padding: 0 0.2rem;
+  border: 1px solid color-mix(in srgb, var(--signal) 60%, transparent);
+  color: var(--scars-neon-bright);
+  font-family: var(--scars-font-display);
+  font-size: 0.8rem;
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+}
+
+.scars-card .card-die.discarded {
+  opacity: 0.35;
+  text-decoration: line-through;
+}
+
+.scars-card .card-total {
+  color: var(--signal);
+  font-family: var(--scars-font-display);
+  font-size: 2.3rem;
+  line-height: 1;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--signal) 75%, transparent);
+}
+
+.scars-card .card-target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-left: 1px dashed color-mix(in srgb, var(--signal) 35%, transparent);
+  color: var(--scars-text);
+  font-family: var(--scars-font-display);
+  font-size: 1.1rem;
+}
+
+.scars-card .card-target small {
+  color: var(--scars-muted);
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Outcome stamp */
+.scars-card .card-outcome {
+  margin: 0;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--signal);
+  background: color-mix(in srgb, var(--signal) 14%, transparent);
+  color: var(--signal);
+  font-family: var(--scars-font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  text-align: center;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--signal) 70%, transparent);
+  text-transform: uppercase;
+}
+
+.scars-card .card-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.15rem 0.6rem;
+  margin: 0;
+  font-family: var(--scars-font-mono);
+  font-size: 0.78rem;
+}
+
+.scars-card .card-details dt {
+  color: var(--scars-muted);
+  text-transform: uppercase;
+}
+
+/* Foundry's chat styles give definition values their own dark color. */
+.scars-card .card-details dd {
+  margin: 0;
+  color: var(--scars-text);
+  text-align: right;
+}
+
+.scars-card .card-note {
+  margin: 0;
+  color: var(--scars-text);
+  font-size: 0.8rem;
+}
+
+.scars-card .card-note i {
+  margin-right: 0.3rem;
+}
+
+.scars-card .horror-details {
+  padding-top: 0.5rem;
+  border-top: 1px dashed color-mix(in srgb, var(--signal) 30%, transparent);
+}
+
+/* Card buttons */
+.scars-card button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  height: auto;
+  min-height: 2rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--signal);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.35);
+  /* Foundry's chat styles give buttons a dark text color. */
+  color: var(--signal);
+  font-family: var(--scars-font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.scars-card button:hover,
+.scars-card button:focus-visible {
+  background: var(--signal);
+  color: var(--scars-void);
+  box-shadow: 0 0 6px var(--signal), 0 0 16px color-mix(in srgb, var(--signal) 40%, transparent);
+}
+
+/* Signal colors per outcome and effect */
+.scars-card.outcome-success,
+.scars-card.outcome-criticalSuccess,
+.scars-card.effect-healing {
+  --signal: var(--scars-neon);
+}
+
+.scars-card.outcome-failure,
+.scars-card.outcome-criticalFailure,
+.scars-card.effect-damage {
+  --signal: var(--scars-danger);
+}
+
+.scars-card.outcome-criticalSuccess,
+.scars-card.outcome-criticalFailure {
+  border-left-width: 6px;
+}
+
+.scars-card.outcome-criticalSuccess .card-outcome,
+.scars-card.outcome-criticalFailure .card-outcome {
+  background: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--signal) 22%, transparent) 0 8px, transparent 8px 16px);
+}
+
+.scars-card.outcome-criticalSuccess .card-note {
+  color: var(--scars-neon);
+}
+
+.scars-card.outcome-criticalFailure .card-note {
+  color: var(--scars-warning);
+}
+
+.scars-card .card-reroll-note {
+  color: var(--scars-info);
+}
+
+/* The commander's reroll answers in the mastery's own color, over a failed card */
+.scars-card .card-commander-reroll {
+  border-color: var(--scars-neon);
+  color: var(--scars-neon);
+}
+
+.scars-card .card-commander-reroll:hover,
+.scars-card .card-commander-reroll:focus-visible {
+  background: var(--scars-neon);
+  color: var(--scars-void);
+  box-shadow: var(--scars-glow);
+}
+
+/* Item use cards */
+.scars-card .item-card-title {
+  gap: 0.55rem;
+}
+
+.scars-card .item-card-image {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border: none;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--signal) 60%, transparent));
+}
+
+.scars-card .card-description > :first-child {
+  margin-top: 0;
+}
+
+.scars-card .card-description > :last-child {
+  margin-bottom: 0;
+}
+
+.scars-card .card-notice {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  border-left: 2px solid var(--scars-warning);
+  background: var(--scars-warning-faint);
+  color: var(--scars-warning);
+}
+
+/* Private alert to the GM */
+.scars-card.gm-alert {
+  --signal: var(--scars-warning);
+}
+
+.scars-card.gm-alert .card-title {
+  background:
+    repeating-linear-gradient(-45deg, rgba(255, 207, 61, 0.2) 0 8px, transparent 8px 16px),
+    rgba(0, 0, 0, 0.4);
+}

@@ -1,68 +1,71 @@
 <section class="tab crew-main {{tab.cssClass}}" data-group="primary" data-tab="main">
-  <section class="crew-section">
-    <h2>{{localize "SCARS.Sheet.profile"}}</h2>
-    <label class="field">
-      <span>{{localize "SCARS.Sheet.player"}}</span>
-      <input type="text" name="system.profile.player" value="{{system.profile.player}}">
-    </label>
-    <label class="field">
-      <span>{{localize "SCARS.Sheet.origin"}}</span>
-      <input type="text" name="system.profile.origin" value="{{system.profile.origin}}">
-    </label>
-    <label class="field">
-      <span>{{localize "SCARS.Sheet.motivation"}}</span>
-      <input type="text" name="system.profile.motivation" value="{{system.profile.motivation}}">
-    </label>
-  </section>
+  <div class="vitals">
+    {{#each vitals}}
+      <section class="vital vital-{{key}} state-{{state}}">
+        <h2 class="panel-label">{{localize label}}</h2>
+        <div class="vital-readout">
+          <input class="vital-value" type="number" name="system.{{key}}.value" value="{{value}}"
+                 min="0" max="{{max}}" step="1" aria-label="{{localize label}}">
+          <span class="vital-max">/{{max}}</span>
+        </div>
+        {{#if segments.length}}
+          <div class="segment-bar" style="--segments: {{segments.length}}">
+            {{#each segments}}
+              <span class="segment{{#if filled}} is-filled{{/if}}"></span>
+            {{/each}}
+          </div>
+        {{/if}}
+        <label class="vital-bonus">
+          <span>{{localize "SCARS.Sheet.bonus"}}</span>
+          <input type="number" name="system.{{key}}.bonus" value="{{bonus}}" min="0" step="1">
+        </label>
+        {{#if horror}}
+          <button type="button" class="horror-roll" data-action="rollHorror">
+            <i class="fa-solid fa-ghost" inert></i>
+            <span>{{localize "SCARS.Roll.horror"}}</span>
+          </button>
+        {{/if}}
+      </section>
+    {{/each}}
+  </div>
 
-  <section class="crew-section">
-    <h2>{{localize "SCARS.Sheet.attributes"}}</h2>
+  <section class="panel attributes-panel">
+    <h2 class="panel-label">{{localize "SCARS.Sheet.attributes"}}</h2>
     <div class="attribute-grid">
       {{#each attributes}}
-        <div class="attribute">
+        <div class="attribute-module">
+          <span class="attribute-label">{{localize label}}</span>
+          <input class="attribute-value" type="number" name="system.attributes.{{key}}" value="{{value}}"
+                 aria-label="{{localize label}}" min="{{@root.attributeRange.min}}" max="{{@root.attributeRange.max}}" step="1">
           <button type="button" class="attribute-roll draggable" data-action="rollTest" data-attribute="{{key}}"
                   data-tooltip="{{localize "SCARS.Roll.rollAttribute" attribute=(localize label)}}">
             <i class="fa-solid fa-dice-d20" inert></i>
-            <span class="attribute-label">{{localize label}}</span>
+            <span>{{localize "SCARS.Roll.roll"}}</span>
           </button>
-          <input type="number" name="system.attributes.{{key}}" value="{{value}}" aria-label="{{localize label}}"
-                 min="{{@root.attributeRange.min}}" max="{{@root.attributeRange.max}}" step="1">
         </div>
       {{/each}}
     </div>
     {{#unless system.attributeSpreadValid}}
-      <p class="spread-warning">{{localize "SCARS.Sheet.invalidSpread"}}</p>
+      <p class="alert-strip">
+        <i class="fa-solid fa-triangle-exclamation" inert></i>
+        <span>{{localize "SCARS.Sheet.invalidSpread"}}</span>
+      </p>
     {{/unless}}
   </section>
 
-  <section class="crew-section resources">
-    <div class="resource">
-      <h2>{{localize "SCARS.Sheet.hitPoints"}}</h2>
-      <div class="resource-values">
-        <input type="number" name="system.hp.value" value="{{system.hp.value}}" min="0" max="{{system.hp.max}}" step="1">
-        <span class="resource-separator">/</span>
-        <span class="resource-max">{{system.hp.max}}</span>
-      </div>
-      <label class="field bonus">
-        <span>{{localize "SCARS.Sheet.bonus"}}</span>
-        <input type="number" name="system.hp.bonus" value="{{system.hp.bonus}}" min="0" step="1">
-      </label>
-    </div>
-    <div class="resource">
-      <h2>{{localize "SCARS.Sheet.sanity"}}</h2>
-      <div class="resource-values">
-        <input type="number" name="system.sanity.value" value="{{system.sanity.value}}" min="0" max="{{system.sanity.max}}" step="1">
-        <span class="resource-separator">/</span>
-        <span class="resource-max">{{system.sanity.max}}</span>
-      </div>
-      <label class="field bonus">
-        <span>{{localize "SCARS.Sheet.bonus"}}</span>
-        <input type="number" name="system.sanity.bonus" value="{{system.sanity.bonus}}" min="0" step="1">
-      </label>
-      <button type="button" class="horror-roll" data-action="rollHorror">
-        <i class="fa-solid fa-ghost" inert></i>
-        <span>{{localize "SCARS.Roll.horror"}}</span>
-      </button>
-    </div>
+  <section class="panel profile-panel">
+    <h2 class="panel-label">{{localize "SCARS.Sheet.profile"}}</h2>
+    <label class="terminal-field">
+      <span>{{localize "SCARS.Sheet.player"}}</span>
+      <input type="text" name="system.profile.player" value="{{system.profile.player}}">
+    </label>
+    <label class="terminal-field">
+      <span>{{localize "SCARS.Sheet.origin"}}</span>
+      <input type="text" name="system.profile.origin" value="{{system.profile.origin}}">
+    </label>
+    <label class="terminal-field">
+      <span>{{localize "SCARS.Sheet.motivation"}}</span>
+      <input type="text" name="system.profile.motivation" value="{{system.profile.motivation}}">
+    </label>
   </section>
 </section>

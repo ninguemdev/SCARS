@@ -11,7 +11,7 @@ const TYPE_PARTS = ["profession", "ability", "gear"];
 export class ScarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   static DEFAULT_OPTIONS = {
     classes: ["scars", "item-sheet"],
-    position: { width: 520, height: 560 },
+    position: { width: 560, height: 680 },
     window: { resizable: true },
     form: { submitOnChange: true }
   };
