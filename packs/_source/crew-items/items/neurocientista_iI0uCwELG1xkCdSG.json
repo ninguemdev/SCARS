@@ -1,0 +1,15 @@
+{
+  "_id": "iI0uCwELG1xkCdSG",
+  "_key": "!items!iI0uCwELG1xkCdSG",
+  "name": "Neurocientista",
+  "type": "profession",
+  "img": "icons/svg/eye.svg",
+  "system": {
+    "domain": "Mente, percepção, comportamento, comunicação e acalmar pessoas.",
+    "description": "<p>Quem sabe quando a mente está mentindo. Rola com vantagem quando o domínio se aplica.</p>"
+  },
+  "folder": "sLFL6caB3W78sfHo",
+  "sort": 101000,
+  "effects": [],
+  "flags": {}
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "zWGF562t5CqYR7B2",
+  "_key": "!items!zWGF562t5CqYR7B2",
+  "name": "Comunicador",
+  "type": "gear",
+  "img": "icons/svg/hanging-sign.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Rádio de curto alcance para falar com a tripulação.</p>"
+  },
+  "folder": "TJxOXboDmrGHYEMH",
+  "sort": 302000,
+  "effects": [],
+  "flags": {}
+}

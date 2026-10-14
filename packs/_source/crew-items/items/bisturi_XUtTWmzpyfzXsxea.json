@@ -1,0 +1,21 @@
+{
+  "_id": "XUtTWmzpyfzXsxea",
+  "_key": "!items!XUtTWmzpyfzXsxea",
+  "name": "Bisturi",
+  "type": "gear",
+  "img": "icons/svg/blood.svg",
+  "system": {
+    "formula": "1d4",
+    "formulaType": "damage",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Causa 1d4 de dano.</p>"
+  },
+  "folder": "HZdMGkxxLfhW5Cvu",
+  "sort": 305000,
+  "effects": [],
+  "flags": {}
+}

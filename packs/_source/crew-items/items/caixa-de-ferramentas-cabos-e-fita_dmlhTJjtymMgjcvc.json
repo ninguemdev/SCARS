@@ -1,0 +1,21 @@
+{
+  "_id": "dmlhTJjtymMgjcvc",
+  "_key": "!items!dmlhTJjtymMgjcvc",
+  "name": "Caixa de ferramentas, cabos e fita",
+  "type": "gear",
+  "img": "icons/svg/chest.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Tudo o que é preciso para abrir, consertar ou improvisar.</p>"
+  },
+  "folder": "6WljLOaF0ztZre1V",
+  "sort": 304000,
+  "effects": [],
+  "flags": {}
+}

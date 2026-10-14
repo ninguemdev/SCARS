@@ -1,0 +1,21 @@
+{
+  "_id": "QJ9t1Ft2BuLFTZRg",
+  "_key": "!items!QJ9t1Ft2BuLFTZRg",
+  "name": "Gravador de voz",
+  "type": "gear",
+  "img": "icons/svg/sound.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Grava e reproduz áudio.</p>"
+  },
+  "folder": "sLFL6caB3W78sfHo",
+  "sort": 304000,
+  "effects": [],
+  "flags": {}
+}

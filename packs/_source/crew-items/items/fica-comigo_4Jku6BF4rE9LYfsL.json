@@ -1,0 +1,23 @@
+{
+  "_id": "4Jku6BF4rE9LYfsL",
+  "_key": "!items!4Jku6BF4rE9LYfsL",
+  "name": "Fica comigo",
+  "type": "ability",
+  "img": "icons/svg/regen.svg",
+  "system": {
+    "uses": {
+      "value": 3,
+      "max": 3,
+      "unlimited": false,
+      "oncePerTarget": false,
+      "targets": []
+    },
+    "resetsOnMission": true,
+    "testNotice": "",
+    "description": "<p>Maestria. Tira alguém dos 0 PV, ou seda alguém e devolve 1d6 de Sanidade.</p><p>3 usos por missão.</p>"
+  },
+  "folder": "HZdMGkxxLfhW5Cvu",
+  "sort": 202000,
+  "effects": [],
+  "flags": {}
+}

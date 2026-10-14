@@ -1,0 +1,21 @@
+{
+  "_id": "apxqYk1IVSArvvrl",
+  "_key": "!items!apxqYk1IVSArvvrl",
+  "name": "Calmantes",
+  "type": "gear",
+  "img": "icons/svg/pill.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 10,
+      "max": 10
+    },
+    "usesLabel": "Calmantes",
+    "description": "<p>Comprimidos para acalmar.</p>"
+  },
+  "folder": "sLFL6caB3W78sfHo",
+  "sort": 305000,
+  "effects": [],
+  "flags": {}
+}

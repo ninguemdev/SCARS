@@ -1,0 +1,21 @@
+{
+  "_id": "NmHwxrAd5sITSbZg",
+  "_key": "!items!NmHwxrAd5sITSbZg",
+  "name": "Seringas de sedativo",
+  "type": "gear",
+  "img": "icons/svg/sleep.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 2,
+      "max": 2
+    },
+    "usesLabel": "Seringas",
+    "description": "<p>Sedativo de ação rápida.</p>"
+  },
+  "folder": "HZdMGkxxLfhW5Cvu",
+  "sort": 304000,
+  "effects": [],
+  "flags": {}
+}

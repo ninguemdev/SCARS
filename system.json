@@ -33,6 +33,16 @@
       "gear": { "htmlFields": ["description"] }
     }
   },
+  "packs": [
+    {
+      "name": "crew-items",
+      "label": "Tripulação: profissões, habilidades e equipamentos",
+      "path": "packs/crew-items",
+      "type": "Item",
+      "system": "scars",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    }
+  ],
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": "sanity",
   "url": "https://github.com/ninguemdev/SCARS",

@@ -1,0 +1,21 @@
+{
+  "_id": "DRlHygsFqXCqiDZp",
+  "_key": "!items!DRlHygsFqXCqiDZp",
+  "name": "Traje de EVA reforçado",
+  "type": "gear",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Traje para atividade extraveicular. Faz parte do kit de todas as profissões.</p>"
+  },
+  "folder": "TJxOXboDmrGHYEMH",
+  "sort": 301000,
+  "effects": [],
+  "flags": {}
+}

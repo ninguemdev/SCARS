@@ -1,0 +1,21 @@
+{
+  "_id": "IlZs1Uf2BJsTMmKL",
+  "_key": "!items!IlZs1Uf2BJsTMmKL",
+  "name": "Tablet de leitura de campo",
+  "type": "gear",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Mede energia, radiação e anomalias.</p>"
+  },
+  "folder": "y7rzAXelFkgAwS9O",
+  "sort": 303000,
+  "effects": [],
+  "flags": {}
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "X2Qg1f2ruFTzBLti",
+  "_key": "!items!X2Qg1f2ruFTzBLti",
+  "name": "Gambiarra",
+  "type": "ability",
+  "img": "icons/svg/lever.svg",
+  "system": {
+    "uses": {
+      "value": 3,
+      "max": 3,
+      "unlimited": false,
+      "oncePerTarget": false,
+      "targets": []
+    },
+    "resetsOnMission": true,
+    "testNotice": "",
+    "description": "<p>Maestria. Constrói algo improvisado que funciona, como uma arma, uma vedação de corredor ou um desvio de energia.</p><p>3 usos por missão.</p>"
+  },
+  "folder": "6WljLOaF0ztZre1V",
+  "sort": 202000,
+  "effects": [],
+  "flags": {}
+}

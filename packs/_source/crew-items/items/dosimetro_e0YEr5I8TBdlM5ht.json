@@ -1,0 +1,21 @@
+{
+  "_id": "e0YEr5I8TBdlM5ht",
+  "_key": "!items!e0YEr5I8TBdlM5ht",
+  "name": "Dosímetro",
+  "type": "gear",
+  "img": "icons/svg/radiation.svg",
+  "system": {
+    "formula": "",
+    "formulaType": "none",
+    "uses": {
+      "value": 0,
+      "max": 0
+    },
+    "usesLabel": "",
+    "description": "<p>Mede a dose de radiação acumulada.</p>"
+  },
+  "folder": "y7rzAXelFkgAwS9O",
+  "sort": 304000,
+  "effects": [],
+  "flags": {}
+}

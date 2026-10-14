@@ -1,0 +1,15 @@
+{
+  "_id": "DBG9v3XAzPDCrhKJ",
+  "_key": "!items!DBG9v3XAzPDCrhKJ",
+  "name": "Comandante e piloto",
+  "type": "profession",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "domain": "Pilotar a nave e a lançadeira, navegar, atividade extraveicular (EVA), gravidade zero e liderar.",
+    "description": "<p>Quem dá as ordens e quem leva a nave para casa. Rola com vantagem quando o domínio se aplica.</p>"
+  },
+  "folder": "yMqzJGbNsiEEbJ5G",
+  "sort": 101000,
+  "effects": [],
+  "flags": {}
+}
