@@ -97,7 +97,7 @@
     },
     "Roll": {
       "roll": "Rolar",
-      "rollAttribute": "Rolar teste de {attribute}",
+      "rollAttribute": "Rolar teste de {attribute}. Arraste para a barra de macros para criar um atalho.",
       "testTitle": "Teste de {attribute}: {name}",
       "difficulty": "Dificuldade",
       "customDifficulty": "Dificuldade personalizada",

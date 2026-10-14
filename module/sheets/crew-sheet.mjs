@@ -1,4 +1,4 @@
-import { ATTRIBUTES, ATTRIBUTE_RANGE, GEAR_FORMULA_TYPES } from "../config.mjs";
+import { ATTRIBUTES, ATTRIBUTE_RANGE, GEAR_FORMULA_TYPES, TEST_DRAG_TYPE } from "../config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -88,6 +88,14 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         relativeTo: profession
       })
     };
+  }
+
+  /** An attribute is dragged as a test, for the hotbar; items keep the default drag data. */
+  async _onDragStart(event) {
+    const { attribute } = event.currentTarget.dataset;
+    if (!attribute) return super._onDragStart(event);
+    const dragData = { type: TEST_DRAG_TYPE, actorUuid: this.actor.uuid, attribute };
+    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
   }
 
   #findItem(target) {
