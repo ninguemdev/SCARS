@@ -1,0 +1,75 @@
+<div class="crew-sheet-body">
+  <header class="crew-header">
+    <img class="crew-portrait" src="{{actor.img}}" data-edit="img" data-action="editImage" alt="{{actor.name}}">
+    <div class="crew-identity">
+      <input class="crew-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize "SCARS.Sheet.name"}}">
+      <div class="crew-status">
+        {{#if system.status.shaken}}
+          <span class="status-badge status-shaken">{{localize "SCARS.Status.shaken"}}</span>
+        {{/if}}
+        {{#if system.status.dying}}
+          <span class="status-badge status-dying">{{localize "SCARS.Status.dying"}}</span>
+        {{/if}}
+      </div>
+    </div>
+  </header>
+
+  <section class="crew-section">
+    <h2>{{localize "SCARS.Sheet.profile"}}</h2>
+    <label class="field">
+      <span>{{localize "SCARS.Sheet.player"}}</span>
+      <input type="text" name="system.profile.player" value="{{system.profile.player}}">
+    </label>
+    <label class="field">
+      <span>{{localize "SCARS.Sheet.origin"}}</span>
+      <input type="text" name="system.profile.origin" value="{{system.profile.origin}}">
+    </label>
+    <label class="field">
+      <span>{{localize "SCARS.Sheet.motivation"}}</span>
+      <input type="text" name="system.profile.motivation" value="{{system.profile.motivation}}">
+    </label>
+  </section>
+
+  <section class="crew-section">
+    <h2>{{localize "SCARS.Sheet.attributes"}}</h2>
+    <div class="attribute-grid">
+      {{#each attributes}}
+        <label class="attribute">
+          <span class="attribute-label">{{localize label}}</span>
+          <input type="number" name="system.attributes.{{key}}" value="{{value}}"
+                 min="{{@root.attributeRange.min}}" max="{{@root.attributeRange.max}}" step="1">
+        </label>
+      {{/each}}
+    </div>
+    {{#unless system.attributeSpreadValid}}
+      <p class="spread-warning">{{localize "SCARS.Sheet.invalidSpread"}}</p>
+    {{/unless}}
+  </section>
+
+  <section class="crew-section resources">
+    <div class="resource">
+      <h2>{{localize "SCARS.Sheet.hitPoints"}}</h2>
+      <div class="resource-values">
+        <input type="number" name="system.hp.value" value="{{system.hp.value}}" min="0" max="{{system.hp.max}}" step="1">
+        <span class="resource-separator">/</span>
+        <span class="resource-max">{{system.hp.max}}</span>
+      </div>
+      <label class="field bonus">
+        <span>{{localize "SCARS.Sheet.bonus"}}</span>
+        <input type="number" name="system.hp.bonus" value="{{system.hp.bonus}}" min="0" step="1">
+      </label>
+    </div>
+    <div class="resource">
+      <h2>{{localize "SCARS.Sheet.sanity"}}</h2>
+      <div class="resource-values">
+        <input type="number" name="system.sanity.value" value="{{system.sanity.value}}" min="0" max="{{system.sanity.max}}" step="1">
+        <span class="resource-separator">/</span>
+        <span class="resource-max">{{system.sanity.max}}</span>
+      </div>
+      <label class="field bonus">
+        <span>{{localize "SCARS.Sheet.bonus"}}</span>
+        <input type="number" name="system.sanity.bonus" value="{{system.sanity.bonus}}" min="0" step="1">
+      </label>
+    </div>
+  </section>
+</div>

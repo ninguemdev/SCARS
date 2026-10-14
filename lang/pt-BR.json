@@ -19,6 +19,23 @@
       "none": "Nenhuma",
       "damage": "Dano",
       "healing": "Cura"
+    },
+    "Sheet": {
+      "crew": "Ficha do tripulante",
+      "name": "Nome",
+      "profile": "Perfil",
+      "player": "Jogador",
+      "origin": "Origem",
+      "motivation": "Por que aceitei esta missão",
+      "attributes": "Atributos",
+      "invalidSpread": "Distribuição inválida: os atributos devem usar +3, +2, +1 e 0, um em cada.",
+      "hitPoints": "Pontos de Vida",
+      "sanity": "Sanidade",
+      "bonus": "Bônus"
+    },
+    "Status": {
+      "shaken": "Abalado",
+      "dying": "Morrendo"
     }
   },
   "TYPES": {
