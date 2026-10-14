@@ -1,9 +1,9 @@
 import { HORROR_LOSS } from "../config.mjs";
+import { createSystemMessage } from "../helpers/chat-message.mjs";
 import { clampResource } from "../rules/derived-stats.mjs";
 import {
   buildTestCardData,
   buildTestFlags,
-  createTestMessage,
   evaluateTest,
   TEST_CARD_TEMPLATE
 } from "./test-roll.mjs";
@@ -24,7 +24,7 @@ export async function rollHorrorTest(actor, { difficulty, advantage, heavyScene 
     title: game.i18n.format("SCARS.Roll.horrorTitle", { name: actor.name }),
     horror: { heavyScene, keptControl: test.isSuccess, loss }
   });
-  const message = await createTestMessage(actor, {
+  const message = await createSystemMessage(actor, {
     content,
     rolls: loss ? [test.roll, loss.roll] : [test.roll],
     flags: {

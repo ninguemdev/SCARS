@@ -15,6 +15,7 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     actions: {
       rollTest: CrewSheet.#onRollTest,
       rollHorror: CrewSheet.#onRollHorror,
+      useItem: CrewSheet.#onUseItem,
       editItem: CrewSheet.#onEditItem,
       deleteItem: CrewSheet.#onDeleteItem,
       changeUses: CrewSheet.#onChangeUses
@@ -102,6 +103,10 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await this.actor.rollHorror();
   }
 
+  static async #onUseItem(event, target) {
+    await this.#findItem(target)?.use();
+  }
+
   static #onEditItem(event, target) {
     this.#findItem(target)?.sheet.render({ force: true });
   }
@@ -127,6 +132,8 @@ function buildItemRow(item) {
     name: item.name,
     img: item.img,
     detail: describeItem(item),
+    usable: item.isUsable,
+    canUse: item.hasUsesLeft,
     uses: uses?.limited ? buildUsesControl(item) : null,
     unlimited: Boolean(uses?.unlimited)
   };
