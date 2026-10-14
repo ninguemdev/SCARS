@@ -22,6 +22,19 @@
       "path": "lang/pt-BR.json"
     }
   ],
+  "documentTypes": {
+    "Actor": {
+      "crew": { "htmlFields": ["secret", "notes"] },
+      "threat": { "htmlFields": ["description"] }
+    },
+    "Item": {
+      "profession": { "htmlFields": ["description"] },
+      "ability": { "htmlFields": ["description"] },
+      "gear": { "htmlFields": ["description"] }
+    }
+  },
+  "primaryTokenAttribute": "hp",
+  "secondaryTokenAttribute": "sanity",
   "url": "https://github.com/ninguemdev/SCARS",
   "bugs": "https://github.com/ninguemdev/SCARS/issues",
   "manifest": "https://github.com/ninguemdev/SCARS/releases/latest/download/system.json",
