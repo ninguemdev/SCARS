@@ -11,3 +11,155 @@
   --scars-gap: 0.5rem;
   --scars-font-mono: "Roboto Mono", ui-monospace, monospace;
 }
+
+/* Crew sheet */
+.scars.crew-sheet .window-content {
+  background: var(--scars-color-surface);
+  color: var(--scars-color-text);
+}
+
+.scars.crew-sheet .crew-sheet-body {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--scars-gap) * 2);
+}
+
+.scars.crew-sheet h2 {
+  margin: 0 0 var(--scars-gap);
+  border-bottom: 1px solid var(--scars-color-surface-raised);
+  color: var(--scars-color-accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scars.crew-sheet input {
+  background: var(--scars-color-surface-raised);
+  color: var(--scars-color-text);
+  border-radius: var(--scars-radius);
+}
+
+.scars.crew-sheet .crew-header {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--scars-gap) * 2);
+}
+
+.scars.crew-sheet .crew-portrait {
+  width: 96px;
+  height: 96px;
+  flex: none;
+  object-fit: cover;
+  border: 1px solid var(--scars-color-surface-raised);
+  border-radius: var(--scars-radius);
+  cursor: pointer;
+}
+
+.scars.crew-sheet .crew-identity {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--scars-gap);
+}
+
+.scars.crew-sheet .crew-name {
+  height: auto;
+  font-size: 1.5rem;
+}
+
+.scars.crew-sheet .crew-status {
+  display: flex;
+  gap: var(--scars-gap);
+  min-height: 1.5rem;
+}
+
+.scars.crew-sheet .status-badge {
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--scars-radius);
+  color: var(--scars-color-surface);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.scars.crew-sheet .status-shaken {
+  background: var(--scars-color-warning);
+}
+
+.scars.crew-sheet .status-dying {
+  background: var(--scars-color-danger);
+}
+
+.scars.crew-sheet .field {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  align-items: center;
+  gap: var(--scars-gap);
+  margin-bottom: var(--scars-gap);
+}
+
+.scars.crew-sheet .field span {
+  color: var(--scars-color-muted);
+}
+
+.scars.crew-sheet .attribute-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--scars-gap);
+}
+
+.scars.crew-sheet .attribute {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.scars.crew-sheet .attribute-label {
+  color: var(--scars-color-muted);
+}
+
+.scars.crew-sheet .attribute input {
+  width: 3.5rem;
+  height: 2.5rem;
+  font-family: var(--scars-font-mono);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.scars.crew-sheet .spread-warning {
+  margin: var(--scars-gap) 0 0;
+  color: var(--scars-color-warning);
+}
+
+.scars.crew-sheet .resources {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--scars-gap) * 2);
+}
+
+.scars.crew-sheet .resource-values {
+  display: flex;
+  align-items: center;
+  gap: var(--scars-gap);
+  margin-bottom: var(--scars-gap);
+  font-family: var(--scars-font-mono);
+  font-size: 1.5rem;
+}
+
+.scars.crew-sheet .resource-values input {
+  width: 4.5rem;
+  height: 2.5rem;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+}
+
+.scars.crew-sheet .resource-separator,
+.scars.crew-sheet .resource-max {
+  color: var(--scars-color-muted);
+}
+
+.scars.crew-sheet .resource .field {
+  grid-template-columns: auto 4rem;
+  justify-content: start;
+}

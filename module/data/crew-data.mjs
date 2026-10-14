@@ -6,6 +6,7 @@ import {
   maxHitPoints,
   maxSanity
 } from "../rules/derived-stats.mjs";
+import { isValidAttributeSpread } from "../rules/attribute-spread.mjs";
 import { htmlField, integerField, textField } from "./fields.mjs";
 
 export class CrewData extends foundry.abstract.TypeDataModel {
@@ -40,7 +41,25 @@ export class CrewData extends foundry.abstract.TypeDataModel {
     this.parent.updateSource(startingValues);
   }
 
+  /** Stores HP and Sanity within 0 and the maximum that results from the same update. */
+  async _preUpdate(changes, options, user) {
+    const allowed = await super._preUpdate(changes, options, user);
+    if (allowed === false) return false;
+    const systemChanges = changes.system;
+    if (!systemChanges) return;
+    const next = foundry.utils.mergeObject(this._source, systemChanges, { inplace: false });
+    if (systemChanges.hp?.value !== undefined) {
+      const max = maxHitPoints(next.attributes.body, next.hp.bonus);
+      systemChanges.hp.value = clampResource(systemChanges.hp.value, max);
+    }
+    if (systemChanges.sanity?.value !== undefined) {
+      const max = maxSanity(next.attributes.nerve, next.sanity.bonus);
+      systemChanges.sanity.value = clampResource(systemChanges.sanity.value, max);
+    }
+  }
+
   prepareDerivedData() {
+    this.attributeSpreadValid = isValidAttributeSpread(this.attributes);
     this.hp.max = maxHitPoints(this.attributes.body, this.hp.bonus);
     this.hp.value = clampResource(this.hp.value, this.hp.max);
     this.sanity.max = maxSanity(this.attributes.nerve, this.sanity.bonus);
