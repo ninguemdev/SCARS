@@ -46,8 +46,11 @@ export const SHIP_CLOCK = Object.freeze({
   })
 });
 
-/** Every profession mastery has this many uses per session. */
-export const MASTERY_USES = 2;
+/**
+ * Uses per mission of a profession mastery; the "Nova missão" command restores them.
+ * The commander's mastery is the exception: once per ally in each mission.
+ */
+export const MASTERY_USES = 3;
 
 export const THREAT_DEFEAT = Object.freeze({
   hp: "SCARS.Defeat.hp",
