@@ -18,6 +18,7 @@ export const ATTRIBUTE_RANGE = Object.freeze({ min: 0, max: 3 });
 export const ATTRIBUTE_SPREAD = Object.freeze([3, 2, 1, 0]);
 
 export const DIFFICULTIES = Object.freeze({
+  veryEasy: Object.freeze({ value: 5, label: "SCARS.Difficulty.veryEasy" }),
   easy: Object.freeze({ value: 10, label: "SCARS.Difficulty.easy" }),
   normal: Object.freeze({ value: 15, label: "SCARS.Difficulty.normal" }),
   hard: Object.freeze({ value: 20, label: "SCARS.Difficulty.hard" })

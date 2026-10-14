@@ -5,6 +5,7 @@ import { CUSTOM_DIFFICULTY, resolveDifficulty } from "../../module/rules/difficu
 
 describe("difficulty", () => {
   it("uses the value of each preset", () => {
+    assert.equal(resolveDifficulty("veryEasy"), 5);
     assert.equal(resolveDifficulty("easy"), 10);
     assert.equal(resolveDifficulty("normal"), 15);
     assert.equal(resolveDifficulty("hard"), 20);
