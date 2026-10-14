@@ -1,0 +1,27 @@
+<section class="item-section">
+  <label class="field">
+    <span>{{localize "SCARS.Item.formulaType"}}</span>
+    <select name="system.formulaType">
+      {{selectOptions formulaTypes selected=system.formulaType localize=true}}
+    </select>
+  </label>
+  {{#if (ne system.formulaType "none")}}
+    <label class="field">
+      <span>{{localize "SCARS.Item.formula"}}</span>
+      <input type="text" name="system.formula" value="{{system.formula}}" placeholder="1d6">
+    </label>
+  {{/if}}
+  <div class="field">
+    <span>{{#if system.usesLabel}}{{system.usesLabel}}{{else}}{{localize "SCARS.Item.uses"}}{{/if}}</span>
+    <div class="uses-values">
+      <input type="number" name="system.uses.value" value="{{system.uses.value}}" min="0" max="{{system.uses.max}}" step="1">
+      <span class="uses-separator">/</span>
+      <input type="number" name="system.uses.max" value="{{system.uses.max}}" min="0" step="1">
+    </div>
+  </div>
+  <label class="field stacked">
+    <span>{{localize "SCARS.Item.usesLabel"}}</span>
+    <input type="text" name="system.usesLabel" value="{{system.usesLabel}}">
+    <small class="hint">{{localize "SCARS.Item.usesLabelHint"}}</small>
+  </label>
+</section>
