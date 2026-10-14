@@ -13,3 +13,10 @@
   <input id="scars-test-advantage" type="checkbox" name="advantage">
   <p class="hint">{{localize "SCARS.Roll.advantageHint"}}</p>
 </div>
+{{#if horror}}
+  <div class="form-group">
+    <label for="scars-test-heavy">{{localize "SCARS.Roll.heavyScene"}}</label>
+    <input id="scars-test-heavy" type="checkbox" name="heavyScene">
+    <p class="hint">{{localize "SCARS.Roll.heavySceneHint"}}</p>
+  </div>
+{{/if}}

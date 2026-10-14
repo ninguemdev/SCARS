@@ -23,4 +23,21 @@
   {{#if outcomeNote}}
     <p class="card-note">{{localize outcomeNote}}</p>
   {{/if}}
+  {{#if horror}}
+    <dl class="card-details horror-details">
+      {{#if horror.heavyScene}}
+        <dt>{{localize "SCARS.Roll.heavyScene"}}</dt>
+        <dd><i class="fa-solid fa-check" inert></i></dd>
+      {{/if}}
+      {{#if horror.loss}}
+        <dt>{{localize "SCARS.Roll.sanityLoss"}}</dt>
+        <dd>{{horror.loss.amount}} ({{horror.loss.formula}})</dd>
+        <dt>{{localize "SCARS.Sheet.sanity"}}</dt>
+        <dd>{{horror.loss.before}} → {{horror.loss.after}} / {{horror.loss.max}}</dd>
+      {{/if}}
+    </dl>
+    {{#if horror.keptControl}}
+      <p class="card-note">{{localize "SCARS.Roll.keptControl"}}</p>
+    {{/if}}
+  {{/if}}
 </div>

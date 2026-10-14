@@ -4,14 +4,16 @@ import { CUSTOM_DIFFICULTY, resolveDifficulty } from "../rules/difficulty.mjs";
 const TEMPLATE = "systems/scars/templates/dialog/test-dialog.hbs";
 
 /**
- * Asks for the difficulty and whether the test has advantage.
- * Resolves to `{ difficulty, advantage }`, or null when the dialog is closed or the custom difficulty is invalid.
+ * Asks for the difficulty and whether the test has advantage; a horror test also asks whether the scene is heavy.
+ * Resolves to `{ difficulty, advantage, heavyScene }`, or null when the dialog is closed or the custom difficulty
+ * is invalid.
  */
-export async function promptTestOptions({ title }) {
+export async function promptTestOptions({ title, horror = false }) {
   const { renderTemplate } = foundry.applications.handlebars;
   const content = await renderTemplate(TEMPLATE, {
     difficultyOptions: buildDifficultyOptions(),
-    selectedDifficulty: "normal"
+    selectedDifficulty: "normal",
+    horror
   });
   const answer = await foundry.applications.api.DialogV2.input({
     window: { title, icon: "fa-solid fa-dice-d20" },
@@ -25,7 +27,7 @@ export async function promptTestOptions({ title }) {
     ui.notifications.warn("SCARS.Roll.invalidDifficulty", { localize: true });
     return null;
   }
-  return { difficulty, advantage: Boolean(answer.advantage) };
+  return { difficulty, advantage: Boolean(answer.advantage), heavyScene: Boolean(answer.heavyScene) };
 }
 
 function buildDifficultyOptions() {
