@@ -1,0 +1,25 @@
+<section class="item-section">
+  <label class="field checkbox">
+    <input type="checkbox" name="system.uses.unlimited" {{checked system.uses.unlimited}}>
+    <span>{{localize "SCARS.Item.unlimited"}}</span>
+  </label>
+  {{#unless system.uses.unlimited}}
+    <div class="field">
+      <span>{{localize "SCARS.Item.uses"}}</span>
+      <div class="uses-values">
+        <input type="number" name="system.uses.value" value="{{system.uses.value}}" min="0" max="{{system.uses.max}}" step="1">
+        <span class="uses-separator">/</span>
+        <input type="number" name="system.uses.max" value="{{system.uses.max}}" min="0" step="1">
+      </div>
+    </div>
+    <label class="field checkbox">
+      <input type="checkbox" name="system.resetsOnSession" {{checked system.resetsOnSession}}>
+      <span>{{localize "SCARS.Item.resetsOnSession"}}</span>
+    </label>
+  {{/unless}}
+  <label class="field stacked">
+    <span>{{localize "SCARS.Item.testNotice"}}</span>
+    <input type="text" name="system.testNotice" value="{{system.testNotice}}">
+    <small class="hint">{{localize "SCARS.Item.testNoticeHint"}}</small>
+  </label>
+</section>

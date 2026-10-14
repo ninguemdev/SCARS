@@ -1,6 +1,7 @@
 import { GEAR_FORMULA_TYPES } from "../config.mjs";
 import { clampResource } from "../rules/derived-stats.mjs";
 import { choiceField, htmlField, integerField, textField } from "./fields.mjs";
+import { clampUsesChange } from "./uses.mjs";
 
 export class GearData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
@@ -15,6 +16,12 @@ export class GearData extends foundry.abstract.TypeDataModel {
       }),
       usesLabel: textField()
     };
+  }
+
+  async _preUpdate(changes, options, user) {
+    const allowed = await super._preUpdate(changes, options, user);
+    if (allowed === false) return false;
+    clampUsesChange(changes, this._source);
   }
 
   prepareDerivedData() {

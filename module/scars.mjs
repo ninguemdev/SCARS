@@ -5,6 +5,7 @@ import { GearData } from "./data/gear-data.mjs";
 import { ProfessionData } from "./data/profession-data.mjs";
 import { ThreatData } from "./data/threat-data.mjs";
 import { CrewSheet } from "./sheets/crew-sheet.mjs";
+import { ScarsItemSheet } from "./sheets/item-sheet.mjs";
 
 Hooks.once("init", () => {
   game.scars = { config: SCARS };
@@ -27,5 +28,10 @@ function registerSheets() {
     types: ["crew"],
     makeDefault: true,
     label: "SCARS.Sheet.crew"
+  });
+  foundry.documents.collections.Items.registerSheet(SYSTEM_ID, ScarsItemSheet, {
+    types: ["profession", "ability", "gear"],
+    makeDefault: true,
+    label: "SCARS.Sheet.item"
   });
 }

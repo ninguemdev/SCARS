@@ -31,11 +31,26 @@
       "invalidSpread": "Distribuição inválida: os atributos devem usar +3, +2, +1 e 0, um em cada.",
       "hitPoints": "Pontos de Vida",
       "sanity": "Sanidade",
-      "bonus": "Bônus"
+      "bonus": "Bônus",
+      "item": "Ficha de item",
+      "description": "Descrição"
     },
     "Status": {
       "shaken": "Abalado",
       "dying": "Morrendo"
+    },
+    "Item": {
+      "domain": "Domínio",
+      "domainHint": "Situações em que o tripulante rola com vantagem.",
+      "uses": "Usos",
+      "unlimited": "Usos ilimitados",
+      "resetsOnSession": "Restaurar na nova sessão",
+      "testNotice": "Aviso de teste",
+      "testNoticeHint": "Mostrado ao usar a habilidade. Ex.: com o relógio em 4 ou mais, exige teste de Nervos 15.",
+      "formulaType": "Tipo de fórmula",
+      "formula": "Fórmula",
+      "usesLabel": "Nome dos usos",
+      "usesLabelHint": "Ex.: Cargas, Casco. Com máximo 0, o equipamento não tem controle de usos."
     }
   },
   "TYPES": {

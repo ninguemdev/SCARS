@@ -163,3 +163,114 @@
   grid-template-columns: auto 4rem;
   justify-content: start;
 }
+
+/* Item sheet */
+.scars.item-sheet .window-content {
+  gap: calc(var(--scars-gap) * 2);
+  background: var(--scars-color-surface);
+  color: var(--scars-color-text);
+}
+
+.scars.item-sheet h2 {
+  margin: 0 0 var(--scars-gap);
+  border-bottom: 1px solid var(--scars-color-surface-raised);
+  color: var(--scars-color-accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scars.item-sheet input,
+.scars.item-sheet select {
+  background: var(--scars-color-surface-raised);
+  color: var(--scars-color-text);
+  border-radius: var(--scars-radius);
+}
+
+.scars.item-sheet .item-header {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--scars-gap) * 2);
+}
+
+.scars.item-sheet .item-image {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  object-fit: cover;
+  border: 1px solid var(--scars-color-surface-raised);
+  border-radius: var(--scars-radius);
+  cursor: pointer;
+}
+
+.scars.item-sheet .item-identity {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.scars.item-sheet .item-name {
+  height: auto;
+  font-size: 1.4rem;
+}
+
+.scars.item-sheet .item-type {
+  color: var(--scars-color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.scars.item-sheet .field {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  align-items: center;
+  gap: var(--scars-gap);
+  margin-bottom: var(--scars-gap);
+}
+
+.scars.item-sheet .field > span {
+  color: var(--scars-color-muted);
+}
+
+.scars.item-sheet .field.stacked {
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+}
+
+.scars.item-sheet .field.checkbox {
+  display: flex;
+}
+
+.scars.item-sheet .hint {
+  color: var(--scars-color-muted);
+  font-size: 0.8rem;
+}
+
+.scars.item-sheet .uses-values {
+  display: flex;
+  align-items: center;
+  gap: var(--scars-gap);
+  font-family: var(--scars-font-mono);
+}
+
+.scars.item-sheet .uses-values input {
+  width: 4rem;
+  font-family: inherit;
+  text-align: center;
+}
+
+.scars.item-sheet .uses-separator {
+  color: var(--scars-color-muted);
+}
+
+.scars.item-sheet .item-description {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 12rem;
+}
+
+.scars.item-sheet .item-description prose-mirror {
+  flex: 1;
+}
