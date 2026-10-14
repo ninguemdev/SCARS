@@ -13,7 +13,7 @@ export class AbilityData extends foundry.abstract.TypeDataModel {
         max: integerField(MASTERY_USES),
         unlimited: booleanField(false)
       }),
-      resetsOnSession: booleanField(true),
+      resetsOnMission: booleanField(true),
       testNotice: textField()
     };
   }
