@@ -1,0 +1,29 @@
+{
+  "id": "scars",
+  "title": "SCARS",
+  "description": "Space Core Anomaly RPG System. Sistema de horror espacial: quatro atributos, d20 contra dificuldade, vantagem por profissão, Sanidade e o Relógio da Nave.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "ninguemdev",
+      "url": "https://github.com/ninguemdev"
+    }
+  ],
+  "esmodules": ["module/scars.mjs"],
+  "styles": ["styles/scars.css"],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    }
+  ],
+  "url": "https://github.com/ninguemdev/SCARS",
+  "bugs": "https://github.com/ninguemdev/SCARS/issues",
+  "manifest": "https://github.com/ninguemdev/SCARS/releases/latest/download/system.json",
+  "download": "https://github.com/ninguemdev/SCARS/releases/latest/download/scars.zip"
+}
