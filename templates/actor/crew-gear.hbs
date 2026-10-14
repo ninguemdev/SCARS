@@ -1,0 +1,11 @@
+<section class="tab crew-items crew-gear {{tab.cssClass}}" data-group="primary" data-tab="gear">
+  {{#if gear.length}}
+    <ol class="item-list">
+      {{#each gear as |row|}}
+        {{> "systems/scars/templates/actor/item-row.hbs" row=row}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p class="empty-hint">{{localize "SCARS.Sheet.noGear"}}</p>
+  {{/if}}
+</section>

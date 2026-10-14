@@ -4,11 +4,13 @@ import { CrewData } from "./data/crew-data.mjs";
 import { GearData } from "./data/gear-data.mjs";
 import { ProfessionData } from "./data/profession-data.mjs";
 import { ThreatData } from "./data/threat-data.mjs";
+import { ScarsActor } from "./documents/scars-actor.mjs";
 import { CrewSheet } from "./sheets/crew-sheet.mjs";
 import { ScarsItemSheet } from "./sheets/item-sheet.mjs";
 
 Hooks.once("init", () => {
   game.scars = { config: SCARS };
+  CONFIG.Actor.documentClass = ScarsActor;
   registerDataModels();
   registerSheets();
 });

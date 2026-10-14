@@ -1,0 +1,39 @@
+<li class="item-row draggable" data-item-id="{{row.id}}">
+  <img class="item-row-image" src="{{row.img}}" alt="">
+  <div class="item-row-text">
+    <span class="item-row-name">{{row.name}}</span>
+    {{#if row.detail}}
+      <small class="item-row-detail">{{row.detail}}</small>
+    {{/if}}
+  </div>
+  {{#if row.uses}}
+    <div class="uses-control">
+      {{#if row.uses.label}}
+        <span class="uses-label">{{row.uses.label}}</span>
+      {{/if}}
+      <button type="button" class="icon" data-action="changeUses" data-delta="-1"
+              aria-label="{{localize "SCARS.Sheet.decreaseUses"}}" data-tooltip="{{localize "SCARS.Sheet.decreaseUses"}}"
+              {{#unless row.uses.canDecrease}}disabled{{/unless}}>
+        <i class="fa-solid fa-minus" inert></i>
+      </button>
+      <span class="uses-value">{{row.uses.value}}/{{row.uses.max}}</span>
+      <button type="button" class="icon" data-action="changeUses" data-delta="1"
+              aria-label="{{localize "SCARS.Sheet.increaseUses"}}" data-tooltip="{{localize "SCARS.Sheet.increaseUses"}}"
+              {{#unless row.uses.canIncrease}}disabled{{/unless}}>
+        <i class="fa-solid fa-plus" inert></i>
+      </button>
+    </div>
+  {{else if row.unlimited}}
+    <span class="uses-unlimited">{{localize "SCARS.Sheet.unlimited"}}</span>
+  {{/if}}
+  <div class="item-row-controls">
+    <button type="button" class="icon" data-action="editItem"
+            aria-label="{{localize "SCARS.Sheet.editItem"}}" data-tooltip="{{localize "SCARS.Sheet.editItem"}}">
+      <i class="fa-solid fa-pen-to-square" inert></i>
+    </button>
+    <button type="button" class="icon" data-action="deleteItem"
+            aria-label="{{localize "SCARS.Sheet.deleteItem"}}" data-tooltip="{{localize "SCARS.Sheet.deleteItem"}}">
+      <i class="fa-solid fa-trash" inert></i>
+    </button>
+  </div>
+</li>
