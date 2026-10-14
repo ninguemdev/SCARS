@@ -1,7 +1,9 @@
 <header class="item-header">
-  <img class="item-image" src="{{item.img}}" data-edit="img" data-action="editImage" alt="{{item.name}}">
+  <div class="portrait-frame item-image-frame">
+    <img class="item-image" src="{{item.img}}" data-edit="img" data-action="editImage" alt="{{item.name}}">
+  </div>
   <div class="item-identity">
-    <input class="item-name" type="text" name="name" value="{{item.name}}" placeholder="{{localize "SCARS.Sheet.name"}}">
     <span class="item-type">{{localize typeLabel}}</span>
+    <input class="item-name" type="text" name="name" value="{{item.name}}" placeholder="{{localize "SCARS.Sheet.name"}}">
   </div>
 </header>

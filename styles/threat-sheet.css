@@ -1,0 +1,194 @@
+/* Threat sheet as a hostile contact on the scanner: same console, red alert palette. */
+.scars.threat-sheet {
+  --threat: var(--scars-danger);
+  border-color: rgba(255, 61, 110, 0.55);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8), 0 0 28px rgba(255, 61, 110, 0.14), 0 16px 48px rgba(0, 0, 0, 0.8);
+}
+
+.scars.threat-sheet > .window-header {
+  border-bottom-color: rgba(255, 61, 110, 0.55);
+  background:
+    repeating-linear-gradient(-45deg, rgba(255, 61, 110, 0.14) 0 10px, transparent 10px 20px),
+    var(--scars-void);
+}
+
+.scars.threat-sheet > .window-header .window-title {
+  color: var(--threat);
+  text-shadow: 0 0 6px rgba(255, 61, 110, 0.7);
+}
+
+.scars.threat-sheet .window-content {
+  padding: 1rem;
+  background:
+    var(--scars-surface-texture),
+    radial-gradient(ellipse at top, #1d0b12 0%, var(--scars-bg) 55%, var(--scars-void) 100%);
+}
+
+.scars.threat-sheet .threat-sheet-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-height: 0;
+}
+
+.scars.threat-sheet .panel,
+.scars.threat-sheet .stat-block {
+  --bracket: var(--threat);
+  border-color: rgba(255, 61, 110, 0.2);
+}
+
+.scars.threat-sheet .panel-label {
+  color: var(--threat);
+  text-shadow: 0 0 6px rgba(255, 61, 110, 0.6);
+}
+
+.scars.threat-sheet .threat-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.scars.threat-sheet .threat-portrait-frame {
+  width: 104px;
+  height: 104px;
+  border-color: rgba(255, 61, 110, 0.6);
+}
+
+/* Targeting reticle over the portrait */
+.scars .portrait-reticle {
+  position: absolute;
+  inset: 4px;
+  background:
+    linear-gradient(var(--threat), var(--threat)) top center / 2px 22% no-repeat,
+    linear-gradient(var(--threat), var(--threat)) bottom center / 2px 22% no-repeat,
+    linear-gradient(var(--threat), var(--threat)) left center / 22% 2px no-repeat,
+    linear-gradient(var(--threat), var(--threat)) right center / 22% 2px no-repeat,
+    radial-gradient(circle, transparent 0 40%, var(--threat) 41% 44%, transparent 45%);
+  filter: drop-shadow(0 0 3px var(--threat));
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.scars.threat-sheet .threat-identity {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.scars.threat-sheet .threat-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--threat);
+  font-family: var(--scars-font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: scars-blink 1.8s steps(2, start) infinite;
+}
+
+.scars.threat-sheet .threat-name {
+  height: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #ffd6e0;
+  font-family: var(--scars-font-display);
+  font-size: 1.7rem;
+  text-shadow: 0 0 8px rgba(255, 61, 110, 0.6);
+  text-transform: uppercase;
+}
+
+.scars.threat-sheet .threat-name:focus {
+  box-shadow: none;
+}
+
+.scars.threat-sheet .threat-stats {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1.2fr;
+  gap: 0.7rem;
+}
+
+.scars.threat-sheet .stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.scars.threat-sheet .stat-block .panel-label {
+  margin: 0;
+}
+
+.scars.threat-sheet .stat-value {
+  height: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #ffd6e0;
+  font-family: var(--scars-font-display);
+  font-size: 1.6rem;
+}
+
+.scars.threat-sheet .damage-input {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.scars.threat-sheet .damage-input .stat-value {
+  flex: 1;
+  min-width: 0;
+}
+
+.scars.threat-sheet .window-content button {
+  border-color: rgba(255, 61, 110, 0.5);
+  color: var(--threat);
+}
+
+.scars.threat-sheet .window-content button:hover:not(:disabled),
+.scars.threat-sheet .window-content button:focus-visible {
+  border-color: var(--threat);
+  background: var(--threat);
+  color: var(--scars-void);
+  box-shadow: 0 0 6px var(--threat), 0 0 16px rgba(255, 61, 110, 0.35);
+}
+
+.scars.threat-sheet .threat-condition {
+  --meter: var(--threat);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.scars.threat-sheet .threat-condition .vital-readout {
+  --meter: var(--threat);
+}
+
+.scars.threat-sheet .vital-max-input {
+  width: 3.5rem;
+  height: 2rem;
+  font-family: var(--scars-font-display);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.scars.threat-sheet .threat-description {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 10rem;
+}
+
+.scars.threat-sheet .threat-description prose-mirror {
+  flex: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scars.threat-sheet .threat-tag {
+    animation: none;
+  }
+}

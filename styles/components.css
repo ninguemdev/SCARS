@@ -1,0 +1,290 @@
+/* Building blocks shared by SCARS windows: frames, labels, LEDs, meters, buttons and fields. */
+
+.application.scars {
+  --background: var(--scars-bg);
+  border: 1px solid var(--scars-line-strong);
+  border-radius: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8), 0 0 28px rgba(97, 255, 160, 0.12), 0 16px 48px rgba(0, 0, 0, 0.8);
+  color: var(--scars-text);
+}
+
+.application.scars > .window-header {
+  background:
+    linear-gradient(90deg, rgba(97, 255, 160, 0.18), rgba(97, 255, 160, 0.02) 60%),
+    var(--scars-void);
+}
+
+.application.scars .window-content {
+  background:
+    var(--scars-surface-texture),
+    radial-gradient(ellipse at top, #0b1d16 0%, var(--scars-bg) 55%, var(--scars-void) 100%);
+  color: var(--scars-text);
+}
+
+/* Panel with HUD corner brackets */
+.scars .panel,
+.scars .vital,
+.scars .stat-block,
+.scars .attribute-module {
+  --bracket: var(--scars-neon);
+  position: relative;
+  padding: 0.75rem;
+  border: 1px solid var(--scars-line);
+  background:
+    linear-gradient(var(--bracket), var(--bracket)) top left / 12px 2px no-repeat,
+    linear-gradient(var(--bracket), var(--bracket)) top left / 2px 12px no-repeat,
+    linear-gradient(var(--bracket), var(--bracket)) top right / 12px 2px no-repeat,
+    linear-gradient(var(--bracket), var(--bracket)) top right / 2px 12px no-repeat,
+    linear-gradient(var(--bracket), var(--bracket)) bottom left / 12px 2px no-repeat,
+    linear-gradient(var(--bracket), var(--bracket)) bottom left / 2px 12px no-repeat,
+    linear-gradient(var(--bracket), var(--bracket)) bottom right / 12px 2px no-repeat,
+    linear-gradient(var(--bracket), var(--bracket)) bottom right / 2px 12px no-repeat,
+    linear-gradient(160deg, rgba(97, 255, 160, 0.06), transparent 45%),
+    rgba(4, 10, 8, 0.72);
+}
+
+/* Section label: a small tag with a pointer cut, like a console readout header */
+.scars .panel-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  border: none;
+  color: var(--scars-neon);
+  font-family: var(--scars-font-display);
+  font-size: 0.72rem;
+  font-weight: normal;
+  letter-spacing: 0.14em;
+  text-shadow: var(--scars-text-glow);
+  text-transform: uppercase;
+}
+
+.scars .panel-label::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  box-shadow: var(--scars-glow);
+}
+
+.scars .hint,
+.scars .empty-hint {
+  color: var(--scars-muted);
+  font-size: 0.78rem;
+}
+
+.scars .empty-hint {
+  padding: 1.5rem;
+  border: 1px dashed var(--scars-line-strong);
+  font-family: var(--scars-font-mono);
+  text-align: center;
+}
+
+/* Fields */
+.scars input[type="text"],
+.scars input[type="number"],
+.scars select {
+  border: 1px solid var(--scars-line);
+  border-radius: var(--scars-radius);
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--scars-text);
+  font-family: var(--scars-font-mono);
+}
+
+.scars input[type="text"]:focus,
+.scars input[type="number"]:focus,
+.scars select:focus {
+  border-color: var(--scars-neon);
+  box-shadow: var(--scars-glow);
+  outline: none;
+}
+
+.scars select option {
+  background: var(--scars-panel);
+  color: var(--scars-text);
+}
+
+.scars input[type="checkbox"] {
+  accent-color: var(--scars-neon);
+}
+
+/* Buttons: neon outline that fills on hover */
+:where(.application.scars .window-content) button {
+  border: 1px solid var(--scars-line-strong);
+  border-radius: 0;
+  background: rgba(97, 255, 160, 0.04);
+  color: var(--scars-neon);
+  font-family: var(--scars-font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 120ms ease, color 120ms ease, box-shadow 120ms ease;
+}
+
+:where(.application.scars .window-content) button:hover:not(:disabled),
+:where(.application.scars .window-content) button:focus-visible {
+  border-color: var(--scars-neon);
+  background: var(--scars-neon);
+  color: var(--scars-void);
+  box-shadow: var(--scars-glow);
+  text-shadow: none;
+}
+
+:where(.application.scars .window-content) button:disabled {
+  border-color: var(--scars-line);
+  background: transparent;
+  color: var(--scars-neon-dim);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+:where(.application.scars .window-content) button.icon {
+  display: inline-grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+/* Status LEDs: always on the panel, lit only when the state applies */
+.scars .status-led {
+  --led: var(--scars-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.6rem 0.2rem 0.45rem;
+  border: 1px solid var(--scars-line);
+  color: var(--scars-muted);
+  font-family: var(--scars-font-display);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  opacity: 0.55;
+  text-transform: uppercase;
+}
+
+.scars .status-led::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #1b2a23;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.9);
+}
+
+.scars .status-led.is-on {
+  border-color: var(--led);
+  background: color-mix(in srgb, var(--led) 12%, transparent);
+  color: var(--led);
+  opacity: 1;
+  text-shadow: 0 0 6px var(--led);
+}
+
+.scars .status-led.is-on::before {
+  background: var(--led);
+  box-shadow: 0 0 6px var(--led), 0 0 12px var(--led);
+  animation: scars-blink 1.6s steps(2, start) infinite;
+}
+
+.scars .led-shaken {
+  --led: var(--scars-warning);
+}
+
+.scars .led-dying,
+.scars .led-defeated {
+  --led: var(--scars-danger);
+}
+
+/* Segmented meter: one cell per point of the maximum, in the color of the panel around it */
+.scars .segment-bar {
+  display: grid;
+  grid-template-columns: repeat(var(--segments), 1fr);
+  gap: 3px;
+  height: 0.9rem;
+}
+
+.scars .segment {
+  background: rgba(97, 255, 160, 0.07);
+  transform: skewX(-18deg);
+}
+
+.scars .segment.is-filled {
+  background: var(--meter, var(--scars-neon));
+  box-shadow: 0 0 6px color-mix(in srgb, var(--meter, var(--scars-neon)) 70%, transparent);
+}
+
+/* Portrait with corner frame */
+.scars .portrait-frame {
+  position: relative;
+  flex: none;
+  padding: 4px;
+  border: 1px solid var(--scars-line-strong);
+  background: rgba(0, 0, 0, 0.6);
+  clip-path: polygon(var(--scars-cut) 0, 100% 0, 100% calc(100% - var(--scars-cut)), calc(100% - var(--scars-cut)) 100%, 0 100%, 0 var(--scars-cut));
+}
+
+.scars .portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.scars .alert-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.6rem 0 0;
+  padding: 0.45rem 0.6rem;
+  border-left: 3px solid var(--scars-warning);
+  background:
+    repeating-linear-gradient(-45deg, var(--scars-warning-faint) 0 8px, transparent 8px 16px),
+    rgba(0, 0, 0, 0.4);
+  color: var(--scars-warning);
+  font-size: 0.8rem;
+}
+
+.scars .alert-strip i {
+  animation: scars-blink 1.2s steps(2, start) infinite;
+}
+
+/* Rich text inside SCARS windows */
+.scars .profession-description,
+.scars .card-description {
+  color: var(--scars-text);
+  line-height: 1.45;
+}
+
+@keyframes scars-blink {
+  to {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scars .status-led.is-on::before,
+  .scars .alert-strip i {
+    animation: none;
+  }
+}
+
+/* Big readouts are typed, not stepped: the spinner would only push the digits apart. */
+.scars .vital-value,
+.scars .attribute-value,
+.scars .stat-value {
+  appearance: textfield;
+}
+
+.scars .vital-value::-webkit-inner-spin-button,
+.scars .vital-value::-webkit-outer-spin-button,
+.scars .attribute-value::-webkit-inner-spin-button,
+.scars .attribute-value::-webkit-outer-spin-button,
+.scars .stat-value::-webkit-inner-spin-button,
+.scars .stat-value::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}

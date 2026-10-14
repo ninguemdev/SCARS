@@ -1,0 +1,133 @@
+/* Item sheet as a technical spec card: identity strip, specification panel and notes. */
+.scars.item-sheet .window-content {
+  gap: 0.9rem;
+  padding: 1rem;
+}
+
+.scars.item-sheet .item-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--scars-line);
+}
+
+.scars.item-sheet .item-image-frame {
+  width: 72px;
+  height: 72px;
+}
+
+.scars.item-sheet .item-identity {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.scars.item-sheet .item-type {
+  align-self: flex-start;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--scars-line-strong);
+  color: var(--scars-neon);
+  font-family: var(--scars-font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.scars.item-sheet .item-name {
+  height: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--scars-neon-bright);
+  font-family: var(--scars-font-display);
+  font-size: 1.4rem;
+  text-shadow: var(--scars-text-glow);
+  text-transform: uppercase;
+}
+
+.scars.item-sheet .item-name:focus {
+  box-shadow: none;
+}
+
+.scars.item-sheet .item-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.scars.item-sheet .field {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.scars.item-sheet .field > span {
+  color: var(--scars-muted);
+  font-family: var(--scars-font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.scars.item-sheet .field.stacked {
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+}
+
+.scars.item-sheet .field.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.scars.item-sheet .field.checkbox > span {
+  color: var(--scars-text);
+  font-family: var(--scars-font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.scars.item-sheet .uses-values {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scars.item-sheet .uses-values input {
+  width: 4rem;
+  font-family: var(--scars-font-display);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.scars.item-sheet .uses-separator {
+  color: var(--scars-muted);
+}
+
+.scars.item-sheet .target-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--scars-font-mono);
+  font-size: 0.82rem;
+}
+
+.scars.item-sheet .target-list li::before {
+  content: "\25B8  ";
+  color: var(--scars-neon);
+}
+
+.scars.item-sheet .item-description {
+  flex: 1;
+  min-height: 12rem;
+}
+
+.scars.item-sheet .item-description prose-mirror {
+  flex: 1;
+}

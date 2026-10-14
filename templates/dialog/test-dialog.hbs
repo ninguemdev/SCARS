@@ -1,22 +1,34 @@
-<div class="form-group">
-  <label for="scars-test-difficulty">{{localize "SCARS.Roll.difficulty"}}</label>
-  <select id="scars-test-difficulty" name="difficulty">
-    {{selectOptions difficultyOptions selected=selectedDifficulty}}
-  </select>
-</div>
-<div class="form-group">
-  <label for="scars-test-custom">{{localize "SCARS.Roll.customDifficulty"}}</label>
-  <input id="scars-test-custom" type="number" name="customDifficulty" min="1" step="1">
-</div>
-<div class="form-group">
-  <label for="scars-test-advantage">{{localize "SCARS.Roll.advantage"}}</label>
-  <input id="scars-test-advantage" type="checkbox" name="advantage">
-  <p class="hint">{{localize "SCARS.Roll.advantageHint"}}</p>
-</div>
-{{#if horror}}
-  <div class="form-group">
-    <label for="scars-test-heavy">{{localize "SCARS.Roll.heavyScene"}}</label>
-    <input id="scars-test-heavy" type="checkbox" name="heavyScene">
-    <p class="hint">{{localize "SCARS.Roll.heavySceneHint"}}</p>
+<fieldset class="difficulty-picker">
+  <legend>{{localize "SCARS.Roll.difficulty"}}</legend>
+  <div class="difficulty-options">
+    {{#each difficultyChoices}}
+      <label class="difficulty-chip">
+        <input type="radio" name="difficulty" value="{{key}}" {{checked selected}}>
+        <span class="chip-value">{{#if value}}{{value}}{{else}}<i class="fa-solid fa-sliders" inert></i>{{/if}}</span>
+        <span class="chip-label">{{label}}</span>
+      </label>
+    {{/each}}
   </div>
+  <label class="custom-difficulty">
+    <span>{{localize "SCARS.Roll.customDifficulty"}}</span>
+    <input type="number" name="customDifficulty" min="1" step="1">
+  </label>
+</fieldset>
+<label class="toggle">
+  <input type="checkbox" name="advantage">
+  <span class="toggle-track" aria-hidden="true"></span>
+  <span class="toggle-text">
+    <span class="toggle-label">{{localize "SCARS.Roll.advantage"}}</span>
+    <span class="hint">{{localize "SCARS.Roll.advantageHint"}}</span>
+  </span>
+</label>
+{{#if horror}}
+  <label class="toggle">
+    <input type="checkbox" name="heavyScene">
+    <span class="toggle-track" aria-hidden="true"></span>
+    <span class="toggle-text">
+      <span class="toggle-label">{{localize "SCARS.Roll.heavyScene"}}</span>
+      <span class="hint">{{localize "SCARS.Roll.heavySceneHint"}}</span>
+    </span>
+  </label>
 {{/if}}

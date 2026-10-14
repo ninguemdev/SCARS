@@ -1,0 +1,109 @@
+/*
+ * The Foundry interface around the canvas: windows, sidebar, chat log, hotbar and players list.
+ * Only colors, lines and type change; the core layout stays as it is.
+ */
+.application {
+  --background: rgba(4, 10, 8, 0.94);
+  --color-border: rgba(97, 255, 160, 0.28);
+  --color-header-background: rgba(97, 255, 160, 0.06);
+  --color-tabs-border: rgba(97, 255, 160, 0.2);
+  --color-fieldset-border: rgba(97, 255, 160, 0.2);
+  box-shadow: 0 0 0 1px rgba(97, 255, 160, 0.12), 0 12px 40px rgba(0, 0, 0, 0.75), 0 0 24px rgba(97, 255, 160, 0.06);
+}
+
+.application > .window-header {
+  border-bottom: 1px solid var(--scars-line-strong);
+  font-family: var(--scars-font-display);
+  font-size: var(--font-size-12);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.application > .window-header .window-title {
+  color: var(--scars-neon);
+  text-shadow: var(--scars-text-glow);
+}
+
+/* Sidebar and its tabs */
+#sidebar .tabs [data-tab].active,
+#sidebar-tabs [data-tab].active {
+  color: var(--scars-neon);
+  text-shadow: var(--scars-text-glow);
+}
+
+/* Folders in the sidebar and in compendium windows */
+.directory-header,
+.directory-list .folder > .folder-header {
+  border-color: var(--scars-line);
+}
+
+.directory-list .folder > .folder-header {
+  border-left: 2px solid var(--scars-neon);
+  background: linear-gradient(90deg, rgba(97, 255, 160, 0.14), transparent);
+  font-family: var(--scars-font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+.directory-list .folder > .folder-header i {
+  color: var(--scars-neon);
+}
+
+.directory-list .directory-item:hover {
+  background: rgba(97, 255, 160, 0.08);
+}
+
+/* Chat log: dark transmissions instead of parchment */
+.chat-message {
+  --chat-message-background: linear-gradient(180deg, rgba(13, 31, 24, 0.95), rgba(5, 11, 9, 0.95));
+  --chat-message-border-color: rgba(97, 255, 160, 0.22);
+  /* Opaque, so the scene behind the sidebar never tints a private message */
+  --color-whisper-background: #061619;
+  --color-whisper-border: rgba(72, 232, 255, 0.45);
+  --color-blind-background: #17070d;
+  --color-blind-border: rgba(255, 61, 110, 0.45);
+  --color-emote-background: #15130a;
+  --color-emote-border: rgba(255, 207, 61, 0.4);
+  border-width: 1px;
+  border-radius: 0;
+  color: var(--scars-text);
+}
+
+.chat-message .message-header {
+  color: var(--scars-muted);
+}
+
+.chat-message .message-header .message-sender {
+  color: var(--scars-neon);
+  font-family: var(--scars-font-display);
+  font-size: var(--font-size-12);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+#chat-message {
+  --border-color: rgba(97, 255, 160, 0.28);
+  font-family: var(--scars-font-mono);
+}
+
+/* Hotbar slots light up like console keys */
+#hotbar {
+  --slot-color: rgba(4, 10, 8, 0.88);
+  --key-text-color: var(--scars-neon);
+}
+
+#hotbar .slot {
+  border-color: var(--scars-line);
+}
+
+#hotbar .slot:hover {
+  border-color: var(--scars-neon);
+  box-shadow: var(--scars-glow);
+}
+
+#players {
+  --border-color: rgba(97, 255, 160, 0.22);
+  --player-name-self-color: var(--scars-neon);
+}

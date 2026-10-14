@@ -43,6 +43,8 @@
         "gear": "Equipamento"
       },
       "noProfession": "Sem profissão. Arraste uma profissão para esta ficha.",
+      "noProfessionShort": "Sem profissão",
+      "threatTag": "Contato hostil",
       "noAbilities": "Nenhuma habilidade. Arraste habilidades para esta ficha.",
       "noGear": "Nenhum equipamento. Arraste equipamentos para esta ficha.",
       "unlimited": "Ilimitada",
