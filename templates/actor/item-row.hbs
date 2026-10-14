@@ -27,6 +27,13 @@
     <span class="uses-unlimited">{{localize "SCARS.Sheet.unlimited"}}</span>
   {{/if}}
   <div class="item-row-controls">
+    {{#if row.usable}}
+      <button type="button" class="icon use-item" data-action="useItem"
+              aria-label="{{localize "SCARS.Sheet.useItem"}}" data-tooltip="{{localize "SCARS.Sheet.useItem"}}"
+              {{#unless row.canUse}}disabled{{/unless}}>
+        <i class="fa-solid fa-hand-sparkles" inert></i>
+      </button>
+    {{/if}}
     <button type="button" class="icon" data-action="editItem"
             aria-label="{{localize "SCARS.Sheet.editItem"}}" data-tooltip="{{localize "SCARS.Sheet.editItem"}}">
       <i class="fa-solid fa-pen-to-square" inert></i>

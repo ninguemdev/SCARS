@@ -1,4 +1,5 @@
-import { ATTRIBUTES, SYSTEM_ID } from "../config.mjs";
+import { ATTRIBUTES } from "../config.mjs";
+import { createSystemMessage } from "../helpers/chat-message.mjs";
 import { buildTestFormula } from "../rules/test-formula.mjs";
 import { resolveTestOutcome, TEST_OUTCOMES } from "../rules/test-outcome.mjs";
 
@@ -20,7 +21,7 @@ export async function rollAttributeTest(actor, attributeKey, options) {
     TEST_CARD_TEMPLATE,
     buildTestCardData(actor, test)
   );
-  return createTestMessage(actor, { content, rolls: [test.roll], flags: { test: buildTestFlags(test) } });
+  return createSystemMessage(actor, { content, rolls: [test.roll], flags: { test: buildTestFlags(test) } });
 }
 
 /** Rolls the d20 test and resolves its outcome, without posting anything. */
@@ -66,17 +67,4 @@ export function buildTestFlags(test) {
     total: test.roll.total,
     outcome: test.outcome
   };
-}
-
-/** Posts a test card with the visibility chosen in the chat. */
-export function createTestMessage(actor, { content, rolls, flags }) {
-  return ChatMessage.implementation.create(
-    {
-      speaker: ChatMessage.implementation.getSpeaker({ actor }),
-      content,
-      rolls,
-      flags: { [SYSTEM_ID]: flags }
-    },
-    { messageMode: game.settings.get("core", "messageMode") }
-  );
 }

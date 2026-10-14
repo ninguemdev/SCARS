@@ -1,0 +1,27 @@
+<div class="scars scars-card item-card{{#if effect}} effect-{{effect.type}}{{/if}}">
+  <header class="card-title item-card-title">
+    <img class="item-card-image" src="{{img}}" alt="">
+    <span>{{name}}</span>
+  </header>
+  {{#if effect}}
+    <div class="card-roll">
+      <span class="card-formula">{{effect.formula}}</span>
+      <span class="card-effect-label">{{localize effect.label}}</span>
+      <span class="card-total">{{effect.total}}</span>
+    </div>
+  {{else if descriptionHTML}}
+    <div class="card-description">{{{descriptionHTML}}}</div>
+  {{/if}}
+  {{#if testNotice}}
+    <p class="card-note card-notice">
+      <i class="fa-solid fa-triangle-exclamation" inert></i>
+      <span>{{localize "SCARS.Item.testNotice"}}: {{testNotice}}</span>
+    </p>
+  {{/if}}
+  {{#if uses}}
+    <dl class="card-details">
+      <dt>{{uses.label}}</dt>
+      <dd>{{uses.value}}/{{uses.max}}</dd>
+    </dl>
+  {{/if}}
+</div>

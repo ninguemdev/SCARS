@@ -46,6 +46,7 @@
       "noAbilities": "Nenhuma habilidade. Arraste habilidades para esta ficha.",
       "noGear": "Nenhum equipamento. Arraste equipamentos para esta ficha.",
       "unlimited": "Ilimitada",
+      "useItem": "Usar",
       "editItem": "Editar",
       "deleteItem": "Remover",
       "decreaseUses": "Gastar um uso",
@@ -76,6 +77,8 @@
     },
     "Notify": {
       "professionReplaced": "Profissão substituída por {name}.",
+      "noUsesLeft": "{name} está sem usos.",
+      "invalidFormula": "A fórmula de {name} é inválida: {formula}. Corrija na ficha do item.",
       "gmAlertTitle": "Só para o mestre",
       "becameShaken": "{name} ficou Abalado: Sanidade {value} de {max}.",
       "sanityZero": "{name} chegou a 0 de Sanidade e perde o controle por uma cena."
