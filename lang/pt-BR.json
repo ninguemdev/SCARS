@@ -47,11 +47,17 @@
       "editItem": "Editar",
       "deleteItem": "Remover",
       "decreaseUses": "Gastar um uso",
-      "increaseUses": "Recuperar um uso"
+      "increaseUses": "Recuperar um uso",
+      "threat": "Ficha da ameaça",
+      "difficulty": "Dificuldade",
+      "damage": "Dano",
+      "defeat": "Derrota",
+      "successes": "Sucessos"
     },
     "Status": {
       "shaken": "Abalado",
-      "dying": "Morrendo"
+      "dying": "Morrendo",
+      "defeated": "Derrotada"
     },
     "Item": {
       "domain": "Domínio",

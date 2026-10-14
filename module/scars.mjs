@@ -7,6 +7,7 @@ import { ThreatData } from "./data/threat-data.mjs";
 import { ScarsActor } from "./documents/scars-actor.mjs";
 import { CrewSheet } from "./sheets/crew-sheet.mjs";
 import { ScarsItemSheet } from "./sheets/item-sheet.mjs";
+import { ThreatSheet } from "./sheets/threat-sheet.mjs";
 
 Hooks.once("init", () => {
   game.scars = { config: SCARS };
@@ -30,6 +31,11 @@ function registerSheets() {
     types: ["crew"],
     makeDefault: true,
     label: "SCARS.Sheet.crew"
+  });
+  foundry.documents.collections.Actors.registerSheet(SYSTEM_ID, ThreatSheet, {
+    types: ["threat"],
+    makeDefault: true,
+    label: "SCARS.Sheet.threat"
   });
   foundry.documents.collections.Items.registerSheet(SYSTEM_ID, ScarsItemSheet, {
     types: ["profession", "ability", "gear"],

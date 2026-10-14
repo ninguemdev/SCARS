@@ -1,0 +1,53 @@
+<div class="threat-sheet-body">
+  <header class="threat-header">
+    <img class="threat-portrait" src="{{actor.img}}" data-edit="img" data-action="editImage" alt="{{actor.name}}">
+    <div class="threat-identity">
+      <input class="threat-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize "SCARS.Sheet.name"}}">
+      <div class="threat-status">
+        {{#if system.defeated}}
+          <span class="status-badge status-defeated">{{localize "SCARS.Status.defeated"}}</span>
+        {{/if}}
+      </div>
+    </div>
+  </header>
+
+  <section class="threat-section">
+    <label class="field">
+      <span>{{localize "SCARS.Sheet.difficulty"}}</span>
+      <input type="number" name="system.difficulty" value="{{system.difficulty}}" min="1" step="1">
+    </label>
+    <label class="field">
+      <span>{{localize "SCARS.Sheet.damage"}}</span>
+      <input type="text" name="system.damage" value="{{system.damage}}" placeholder="1d6">
+    </label>
+    <label class="field">
+      <span>{{localize "SCARS.Sheet.defeat"}}</span>
+      <select name="system.defeat">
+        {{selectOptions defeatChoices selected=system.defeat localize=true}}
+      </select>
+    </label>
+  </section>
+
+  <section class="threat-section">
+    {{#if defeatedBySuccesses}}
+      <h2>{{localize "SCARS.Sheet.successes"}}</h2>
+      <div class="resource-values">
+        <input type="number" name="system.successes.value" value="{{system.successes.value}}" min="0" max="{{system.successes.max}}" step="1">
+        <span class="resource-separator">/</span>
+        <input type="number" name="system.successes.max" value="{{system.successes.max}}" min="1" step="1">
+      </div>
+    {{else}}
+      <h2>{{localize "SCARS.Sheet.hitPoints"}}</h2>
+      <div class="resource-values">
+        <input type="number" name="system.hp.value" value="{{system.hp.value}}" min="0" max="{{system.hp.max}}" step="1">
+        <span class="resource-separator">/</span>
+        <input type="number" name="system.hp.max" value="{{system.hp.max}}" min="0" step="1">
+      </div>
+    {{/if}}
+  </section>
+
+  <section class="threat-section threat-description">
+    <h2>{{localize "SCARS.Sheet.description"}}</h2>
+    <prose-mirror name="system.description" value="{{system.description}}" toggled>{{{descriptionHTML}}}</prose-mirror>
+  </section>
+</div>

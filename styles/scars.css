@@ -366,3 +366,119 @@
 .scars.item-sheet .item-description prose-mirror {
   flex: 1;
 }
+
+/* Threat sheet */
+.scars.threat-sheet .window-content {
+  background: var(--scars-color-surface);
+  color: var(--scars-color-text);
+}
+
+.scars.threat-sheet .threat-sheet-body {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--scars-gap) * 2);
+  min-height: 100%;
+}
+
+.scars.threat-sheet h2 {
+  margin: 0 0 var(--scars-gap);
+  border-bottom: 1px solid var(--scars-color-surface-raised);
+  color: var(--scars-color-danger);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scars.threat-sheet input,
+.scars.threat-sheet select {
+  background: var(--scars-color-surface-raised);
+  color: var(--scars-color-text);
+  border-radius: var(--scars-radius);
+}
+
+.scars.threat-sheet .threat-header {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--scars-gap) * 2);
+}
+
+.scars.threat-sheet .threat-portrait {
+  width: 80px;
+  height: 80px;
+  flex: none;
+  object-fit: cover;
+  border: 1px solid var(--scars-color-surface-raised);
+  border-radius: var(--scars-radius);
+  cursor: pointer;
+}
+
+.scars.threat-sheet .threat-identity {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--scars-gap);
+}
+
+.scars.threat-sheet .threat-name {
+  height: auto;
+  font-size: 1.4rem;
+}
+
+.scars.threat-sheet .threat-status {
+  min-height: 1.5rem;
+}
+
+.scars.threat-sheet .status-badge {
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--scars-radius);
+  color: var(--scars-color-surface);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.scars.threat-sheet .status-defeated {
+  background: var(--scars-color-muted);
+}
+
+.scars.threat-sheet .field {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  align-items: center;
+  gap: var(--scars-gap);
+  margin-bottom: var(--scars-gap);
+}
+
+.scars.threat-sheet .field > span {
+  color: var(--scars-color-muted);
+}
+
+.scars.threat-sheet .resource-values {
+  display: flex;
+  align-items: center;
+  gap: var(--scars-gap);
+  font-family: var(--scars-font-mono);
+  font-size: 1.5rem;
+}
+
+.scars.threat-sheet .resource-values input {
+  width: 4.5rem;
+  height: 2.5rem;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+}
+
+.scars.threat-sheet .resource-separator {
+  color: var(--scars-color-muted);
+}
+
+.scars.threat-sheet .threat-description {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 10rem;
+}
+
+.scars.threat-sheet .threat-description prose-mirror {
+  flex: 1;
+}

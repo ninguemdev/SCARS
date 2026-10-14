@@ -1,14 +1,18 @@
 import { clampResource } from "../rules/derived-stats.mjs";
 
 /**
- * Keeps an incoming uses value between 0 and the maximum that results from the same update.
- * Called from the _preUpdate of item models that track uses.
+ * Keeps an incoming `<key>.value` between 0 and the `<key>.max` that results from the same update.
+ * Called from the _preUpdate of models whose tracked values have a stored maximum.
  */
+export function clampValueChange(changes, source, key) {
+  const keyChanges = changes.system?.[key];
+  if (keyChanges?.value === undefined) return;
+  const max = keyChanges.max ?? source[key].max;
+  keyChanges.value = clampResource(keyChanges.value, max);
+}
+
 export function clampUsesChange(changes, source) {
-  const usesChanges = changes.system?.uses;
-  if (usesChanges?.value === undefined) return;
-  const max = usesChanges.max ?? source.uses.max;
-  usesChanges.value = clampResource(usesChanges.value, max);
+  clampValueChange(changes, source, "uses");
 }
 
 /**
