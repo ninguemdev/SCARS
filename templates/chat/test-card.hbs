@@ -23,6 +23,19 @@
   {{#if outcomeNote}}
     <p class="card-note">{{localize outcomeNote}}</p>
   {{/if}}
+  {{#if rerollNote}}
+    <p class="card-note card-reroll-note">
+      <i class="fa-solid fa-shield-halved" inert></i>
+      <span>{{rerollNote}}</span>
+    </p>
+  {{/if}}
+  {{#if commanderReroll}}
+    <button type="button" class="card-commander-reroll" data-scars-commander-reroll
+            data-tooltip="{{localize "SCARS.Chat.commanderRerollHint"}}">
+      <i class="fa-solid fa-shield-halved" inert></i>
+      <span>{{localize "SCARS.Chat.commanderReroll"}}</span>
+    </button>
+  {{/if}}
   {{#if horror}}
     <dl class="card-details horror-details">
       {{#if horror.heavyScene}}

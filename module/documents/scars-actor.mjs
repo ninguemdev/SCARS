@@ -1,7 +1,7 @@
 import { ATTRIBUTES, SYSTEM_ID } from "../config.mjs";
 import { hitPointsAfterEffect } from "../rules/apply-effect.mjs";
 import { EFFECT_TYPES } from "../rules/item-use.mjs";
-import { usesAfterMissionReset } from "../rules/mission-reset.mjs";
+import { targetsAfterMissionReset, usesAfterMissionReset } from "../rules/mission-reset.mjs";
 import { describeSanityDrop } from "../rules/sanity-change.mjs";
 import { isValidEffectFormula, postEffectCard, rollEffect } from "../rolls/effect-roll.mjs";
 import { HORROR_ATTRIBUTE, rollHorrorTest } from "../rolls/horror-roll.mjs";
@@ -62,13 +62,13 @@ export class ScarsActor extends foundry.documents.Actor {
   }
 
   /**
-   * Gives back the uses of the abilities that restore on a new mission, such as the profession masteries.
-   * Resolves to the number of abilities restored.
+   * Gives back the uses of the abilities that restore on a new mission, such as the profession masteries, and clears
+   * who received the commander's mastery. Resolves to the number of abilities restored.
    */
   async restoreMissionUses() {
     const updates = this.itemTypes.ability
-      .map((ability) => ({ _id: ability.id, "system.uses.value": usesAfterMissionReset(ability.system) }))
-      .filter((update) => update["system.uses.value"] !== null);
+      .map((ability) => buildMissionResetUpdate(ability))
+      .filter(Boolean);
     if (updates.length) await this.updateEmbeddedDocuments("Item", updates);
     return updates.length;
   }
@@ -139,4 +139,13 @@ export class ScarsActor extends foundry.documents.Actor {
     await this.deleteEmbeddedDocuments("Item", previousIds);
     ui.notifications.info(game.i18n.format("SCARS.Notify.professionReplaced", { name: profession.name }));
   }
+}
+
+function buildMissionResetUpdate(ability) {
+  const update = {};
+  const uses = usesAfterMissionReset(ability.system);
+  const targets = targetsAfterMissionReset(ability.system);
+  if (uses !== null) update["system.uses.value"] = uses;
+  if (targets !== null) update["system.uses.targets"] = targets;
+  return Object.keys(update).length ? { _id: ability.id, ...update } : null;
 }

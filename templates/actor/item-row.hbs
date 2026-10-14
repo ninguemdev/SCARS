@@ -23,6 +23,8 @@
         <i class="fa-solid fa-plus" inert></i>
       </button>
     </div>
+  {{else if row.oncePerTarget}}
+    <span class="uses-unlimited">{{localize "SCARS.Item.oncePerTarget"}}</span>
   {{else if row.unlimited}}
     <span class="uses-unlimited">{{localize "SCARS.Sheet.unlimited"}}</span>
   {{/if}}

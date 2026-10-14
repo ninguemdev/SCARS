@@ -1,22 +1,42 @@
 <section class="item-section">
   <label class="field checkbox">
-    <input type="checkbox" name="system.uses.unlimited" {{checked system.uses.unlimited}}>
-    <span>{{localize "SCARS.Item.unlimited"}}</span>
+    <input type="checkbox" name="system.uses.oncePerTarget" {{checked system.uses.oncePerTarget}}>
+    <span>{{localize "SCARS.Item.oncePerTarget"}}</span>
   </label>
-  {{#unless system.uses.unlimited}}
-    <div class="field">
-      <span>{{localize "SCARS.Item.uses"}}</span>
-      <div class="uses-values">
-        <input type="number" name="system.uses.value" value="{{system.uses.value}}" min="0" max="{{system.uses.max}}" step="1">
-        <span class="uses-separator">/</span>
-        <input type="number" name="system.uses.max" value="{{system.uses.max}}" min="0" step="1">
-      </div>
+  {{#if system.uses.oncePerTarget}}
+    <small class="hint">{{localize "SCARS.Item.oncePerTargetHint"}}</small>
+    <div class="field stacked">
+      <span>{{localize "SCARS.Item.targets"}}</span>
+      {{#if targetNames.length}}
+        <ul class="target-list">
+          {{#each targetNames}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <small class="hint">{{localize "SCARS.Item.noTargets"}}</small>
+      {{/if}}
     </div>
+  {{else}}
     <label class="field checkbox">
-      <input type="checkbox" name="system.resetsOnMission" {{checked system.resetsOnMission}}>
-      <span>{{localize "SCARS.Item.resetsOnMission"}}</span>
+      <input type="checkbox" name="system.uses.unlimited" {{checked system.uses.unlimited}}>
+      <span>{{localize "SCARS.Item.unlimited"}}</span>
     </label>
-  {{/unless}}
+    {{#unless system.uses.unlimited}}
+      <div class="field">
+        <span>{{localize "SCARS.Item.uses"}}</span>
+        <div class="uses-values">
+          <input type="number" name="system.uses.value" value="{{system.uses.value}}" min="0" max="{{system.uses.max}}" step="1">
+          <span class="uses-separator">/</span>
+          <input type="number" name="system.uses.max" value="{{system.uses.max}}" min="0" step="1">
+        </div>
+      </div>
+      <label class="field checkbox">
+        <input type="checkbox" name="system.resetsOnMission" {{checked system.resetsOnMission}}>
+        <span>{{localize "SCARS.Item.resetsOnMission"}}</span>
+      </label>
+    {{/unless}}
+  {{/if}}
   <label class="field stacked">
     <span>{{localize "SCARS.Item.testNotice"}}</span>
     <input type="text" name="system.testNotice" value="{{system.testNotice}}">

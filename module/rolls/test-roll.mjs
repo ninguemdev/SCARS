@@ -1,5 +1,6 @@
 import { ATTRIBUTES } from "../config.mjs";
 import { createSystemMessage } from "../helpers/chat-message.mjs";
+import { canOfferCommanderReroll } from "../rules/commander-mastery.mjs";
 import { buildTestFormula } from "../rules/test-formula.mjs";
 import { resolveTestOutcome, TEST_OUTCOMES } from "../rules/test-outcome.mjs";
 
@@ -13,15 +14,28 @@ const OUTCOME_NOTES = Object.freeze({
 
 /**
  * Rolls an attribute test and posts the result card to the chat.
- * The outcome is stored in the message flags for rerolls.
+ * The outcome is stored in the message flags, so a failed test can be rerolled with the commander's mastery.
+ * A reroll carries who granted it; its card names them and does not offer the mastery again.
  */
-export async function rollAttributeTest(actor, attributeKey, options) {
+export async function rollAttributeTest(actor, attributeKey, options, { reroll } = {}) {
   const test = await evaluateTest(actor, attributeKey, options);
-  const content = await foundry.applications.handlebars.renderTemplate(
-    TEST_CARD_TEMPLATE,
-    buildTestCardData(actor, test)
-  );
-  return createSystemMessage(actor, { content, rolls: [test.roll], flags: { test: buildTestFlags(test) } });
+  const testFlags = buildTestFlags(test);
+  const content = await foundry.applications.handlebars.renderTemplate(TEST_CARD_TEMPLATE, {
+    ...buildTestCardData(actor, test),
+    commanderReroll: !reroll && canOfferCommanderReroll({ test: testFlags }),
+    rerollNote: reroll ? describeReroll(reroll) : null
+  });
+  const flags = { test: testFlags };
+  if (reroll) flags.reroll = buildRerollFlags(reroll);
+  return createSystemMessage(actor, { content, rolls: [test.roll], flags });
+}
+
+function describeReroll({ commander, ability }) {
+  return game.i18n.format("SCARS.Chat.rerollNote", { commander: commander.name, ability: ability.name });
+}
+
+function buildRerollFlags({ commander, ability, fromMessageId }) {
+  return { commanderUuid: commander.uuid, abilityUuid: ability.uuid, fromMessageId };
 }
 
 /** Rolls the d20 test and resolves its outcome, without posting anything. */

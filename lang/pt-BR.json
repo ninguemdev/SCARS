@@ -69,6 +69,10 @@
       "uses": "Usos",
       "unlimited": "Usos ilimitados",
       "resetsOnMission": "Restaurar na nova missão",
+      "oncePerTarget": "Uma vez por pessoa",
+      "oncePerTargetHint": "Sem contador: cada pessoa recebe uma vez por missão, pelo botão no card de teste com falha. A \"Nova missão\" limpa o registro.",
+      "targets": "Já receberam nesta missão",
+      "noTargets": "Ninguém ainda.",
       "testNotice": "Aviso de teste",
       "testNoticeHint": "Mostrado ao usar a habilidade. Ex.: exige teste de Nervos 15.",
       "formulaType": "Tipo de fórmula",
@@ -87,13 +91,20 @@
       "invalidDifficultyOption": "Dificuldade inválida: use veryEasy, easy, normal, hard ou um número inteiro maior que zero.",
       "gameMasterOnly": "Só o mestre pode fazer isso.",
       "newMissionStarted": "Nova missão. Habilidades com usos restaurados: {abilities}.",
+      "unknownTestActor": "Não foi possível encontrar quem fez este teste.",
+      "noCommanderMastery": "Nenhum tripulante seu tem uma habilidade de uma vez por pessoa.",
+      "selectCommander": "Mais de um tripulante seu tem essa maestria. Selecione o token do comandante.",
+      "alreadyReceived": "{name} já recebeu {ability} nesta missão.",
       "invalidFormula": "A fórmula de {name} é inválida: {formula}. Corrija na ficha.",
       "gmAlertTitle": "Só para o mestre",
       "becameShaken": "{name} ficou Abalado: Sanidade {value} de {max}.",
       "sanityZero": "{name} chegou a 0 de Sanidade e perde o controle por uma cena."
     },
     "Chat": {
-      "applyToSelected": "Aplicar ao token selecionado"
+      "applyToSelected": "Aplicar ao token selecionado",
+      "commanderReroll": "Rolar de novo com vantagem",
+      "commanderRerollHint": "Maestria do comandante: cada pessoa recebe uma vez por missão.",
+      "rerollNote": "{commander} usou {ability}: nova rolagem com vantagem."
     },
     "Roll": {
       "roll": "Rolar",
