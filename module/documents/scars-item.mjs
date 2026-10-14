@@ -1,8 +1,12 @@
 import { createSystemMessage } from "../helpers/chat-message.mjs";
-import { buildEffectCardData, buildEffectFlags, rollEffect } from "../rolls/effect-roll.mjs";
+import {
+  buildEffectCardData,
+  buildEffectFlags,
+  isValidEffectFormula,
+  ITEM_CARD_TEMPLATE,
+  rollEffect
+} from "../rolls/effect-roll.mjs";
 import { hasUsesLeft, resolveEffectType } from "../rules/item-use.mjs";
-
-const ITEM_CARD_TEMPLATE = "systems/scars/templates/chat/item-card.hbs";
 
 /** Item types that can be used from the sheet: a profession is only a description. */
 const USABLE_TYPES = Object.freeze(["ability", "gear"]);
@@ -30,13 +34,7 @@ export class ScarsItem extends foundry.documents.Item {
     }
 
     const effectType = resolveEffectType(this.system);
-    if (effectType && !Roll.validate(this.system.formula)) {
-      ui.notifications.error(game.i18n.format("SCARS.Notify.invalidFormula", {
-        name: this.name,
-        formula: this.system.formula
-      }));
-      return null;
-    }
+    if (effectType && !isValidEffectFormula(this.system.formula, this.name)) return null;
 
     const effect = effectType
       ? await rollEffect({ formula: this.system.formula, type: effectType, rollData: this.getRollData() })

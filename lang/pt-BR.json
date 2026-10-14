@@ -54,6 +54,7 @@
       "threat": "Ficha da ameaça",
       "difficulty": "Dificuldade",
       "damage": "Dano",
+      "rollDamage": "Rolar dano",
       "defeat": "Derrota",
       "successes": "Sucessos"
     },
@@ -78,10 +79,16 @@
     "Notify": {
       "professionReplaced": "Profissão substituída por {name}.",
       "noUsesLeft": "{name} está sem usos.",
-      "invalidFormula": "A fórmula de {name} é inválida: {formula}. Corrija na ficha do item.",
+      "noTokenSelected": "Selecione um token para aplicar o efeito.",
+      "cannotChangeActor": "Você não tem permissão para alterar {name}.",
+      "effectApplied": "{name}: PV {before} → {after} de {max}.",
+      "invalidFormula": "A fórmula de {name} é inválida: {formula}. Corrija na ficha.",
       "gmAlertTitle": "Só para o mestre",
       "becameShaken": "{name} ficou Abalado: Sanidade {value} de {max}.",
       "sanityZero": "{name} chegou a 0 de Sanidade e perde o controle por uma cena."
+    },
+    "Chat": {
+      "applyToSelected": "Aplicar ao token selecionado"
     },
     "Roll": {
       "roll": "Rolar",

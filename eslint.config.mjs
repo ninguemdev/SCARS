@@ -8,6 +8,7 @@ const foundryGlobals = {
   Hooks: "readonly",
   foundry: "readonly",
   ui: "readonly",
+  canvas: "readonly",
   Roll: "readonly",
   ChatMessage: "readonly"
 };
