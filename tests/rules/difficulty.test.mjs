@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 
-import { CUSTOM_DIFFICULTY, resolveDifficulty } from "../../module/rules/difficulty.mjs";
+import { CUSTOM_DIFFICULTY, difficultyFromOption, resolveDifficulty } from "../../module/rules/difficulty.mjs";
 
 describe("difficulty", () => {
   it("uses the value of each preset", () => {
@@ -28,5 +28,23 @@ describe("difficulty", () => {
 
   it("rejects an unknown choice", () => {
     assert.equal(resolveDifficulty("impossible"), null);
+  });
+
+  describe("difficultyFromOption", () => {
+    it("accepts a preset key or a positive integer", () => {
+      assert.equal(difficultyFromOption("hard"), 20);
+      assert.equal(difficultyFromOption(12), 12);
+    });
+
+    it("leaves the difficulty to the dialog when the option is missing", () => {
+      assert.equal(difficultyFromOption(undefined), undefined);
+    });
+
+    it("rejects an unknown key or an invalid number", () => {
+      assert.equal(difficultyFromOption("impossible"), null);
+      assert.equal(difficultyFromOption(0), null);
+      assert.equal(difficultyFromOption(7.5), null);
+      assert.equal(difficultyFromOption(null), null);
+    });
   });
 });
