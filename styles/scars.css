@@ -124,8 +124,22 @@
   gap: 0.25rem;
 }
 
-.scars.crew-sheet .attribute-label {
+.scars.crew-sheet .attribute-roll {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: auto;
+  height: auto;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid transparent;
+  background: none;
   color: var(--scars-color-muted);
+}
+
+.scars.crew-sheet .attribute-roll:hover,
+.scars.crew-sheet .attribute-roll:focus-visible {
+  border-color: var(--scars-color-accent);
+  color: var(--scars-color-accent);
 }
 
 .scars.crew-sheet .attribute input {
@@ -481,4 +495,125 @@
 
 .scars.threat-sheet .threat-description prose-mirror {
   flex: 1;
+}
+
+/* Test dialog */
+.scars.test-dialog .hint {
+  flex: 0 0 100%;
+  margin: 0;
+  color: var(--scars-color-muted);
+  font-size: 0.8rem;
+}
+
+/* Chat cards */
+.scars-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scars-gap);
+  padding: var(--scars-gap);
+  border-left: 4px solid var(--scars-color-muted);
+  border-radius: var(--scars-radius);
+  background: var(--scars-color-surface);
+  color: var(--scars-color-text);
+}
+
+.scars-card .card-title {
+  font-weight: bold;
+}
+
+.scars-card .card-roll {
+  display: flex;
+  align-items: center;
+  gap: var(--scars-gap);
+  font-family: var(--scars-font-mono);
+}
+
+.scars-card .card-formula {
+  color: var(--scars-color-muted);
+}
+
+.scars-card .card-dice {
+  display: flex;
+  flex: 1;
+  gap: 0.25rem;
+}
+
+.scars-card .card-die {
+  min-width: 1.75rem;
+  padding: 0.125rem 0.25rem;
+  border: 1px solid var(--scars-color-muted);
+  border-radius: var(--scars-radius);
+  text-align: center;
+}
+
+.scars-card .card-die.discarded {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.scars-card .card-total {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.scars-card .card-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.125rem var(--scars-gap);
+  margin: 0;
+}
+
+.scars-card .card-details dt {
+  color: var(--scars-color-muted);
+}
+
+/* Foundry's chat styles give definition values their own dark color. */
+.scars-card .card-details dd {
+  margin: 0;
+  color: var(--scars-color-text);
+}
+
+.scars-card .card-outcome {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.scars-card .card-note {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.scars-card.outcome-success,
+.scars-card.outcome-criticalSuccess {
+  border-left-color: var(--scars-color-accent);
+}
+
+.scars-card.outcome-success .card-outcome,
+.scars-card.outcome-criticalSuccess .card-outcome {
+  color: var(--scars-color-accent);
+}
+
+.scars-card.outcome-failure,
+.scars-card.outcome-criticalFailure {
+  border-left-color: var(--scars-color-danger);
+}
+
+.scars-card.outcome-failure .card-outcome,
+.scars-card.outcome-criticalFailure .card-outcome {
+  color: var(--scars-color-danger);
+}
+
+.scars-card.outcome-criticalSuccess,
+.scars-card.outcome-criticalFailure {
+  border-left-width: 8px;
+}
+
+.scars-card.outcome-criticalSuccess .card-note {
+  color: var(--scars-color-accent);
+}
+
+.scars-card.outcome-criticalFailure .card-note {
+  color: var(--scars-color-warning);
 }

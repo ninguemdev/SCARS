@@ -1,0 +1,26 @@
+<div class="scars scars-card test-card outcome-{{outcome}}">
+  <header class="card-title">{{title}}</header>
+  <div class="card-roll">
+    <span class="card-formula">{{formula}}</span>
+    <span class="card-dice">
+      {{#each dice}}
+        <span class="card-die{{#unless kept}} discarded{{/unless}}">{{value}}</span>
+      {{/each}}
+    </span>
+    <span class="card-total">{{total}}</span>
+  </div>
+  <dl class="card-details">
+    <dt>{{localize "SCARS.Roll.natural"}}</dt>
+    <dd>{{natural}}</dd>
+    <dt>{{localize "SCARS.Roll.difficulty"}}</dt>
+    <dd>{{difficulty}}</dd>
+    {{#if advantage}}
+      <dt>{{localize "SCARS.Roll.advantage"}}</dt>
+      <dd><i class="fa-solid fa-check" inert></i></dd>
+    {{/if}}
+  </dl>
+  <p class="card-outcome">{{localize outcomeLabel}}</p>
+  {{#if outcomeNote}}
+    <p class="card-note">{{localize outcomeNote}}</p>
+  {{/if}}
+</div>

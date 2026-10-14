@@ -13,6 +13,7 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true },
     actions: {
+      rollTest: CrewSheet.#onRollTest,
       editItem: CrewSheet.#onEditItem,
       deleteItem: CrewSheet.#onDeleteItem,
       changeUses: CrewSheet.#onChangeUses
@@ -90,6 +91,10 @@ export class CrewSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   #findItem(target) {
     const { itemId } = target.closest("[data-item-id]").dataset;
     return this.actor.items.get(itemId);
+  }
+
+  static async #onRollTest(event, target) {
+    await this.actor.rollTest(target.dataset.attribute);
   }
 
   static #onEditItem(event, target) {
