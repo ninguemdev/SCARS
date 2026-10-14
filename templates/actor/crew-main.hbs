@@ -20,7 +20,7 @@
     <div class="attribute-grid">
       {{#each attributes}}
         <div class="attribute">
-          <button type="button" class="attribute-roll" data-action="rollTest" data-attribute="{{key}}"
+          <button type="button" class="attribute-roll draggable" data-action="rollTest" data-attribute="{{key}}"
                   data-tooltip="{{localize "SCARS.Roll.rollAttribute" attribute=(localize label)}}">
             <i class="fa-solid fa-dice-d20" inert></i>
             <span class="attribute-label">{{localize label}}</span>

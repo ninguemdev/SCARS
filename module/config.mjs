@@ -12,6 +12,9 @@ export const ATTRIBUTES = Object.freeze({
   nerve: "SCARS.Attribute.nerve"
 });
 
+/** Drag data type of an attribute test dragged from the crew sheet to the hotbar. */
+export const TEST_DRAG_TYPE = "ScarsTest";
+
 export const ATTRIBUTE_RANGE = Object.freeze({ min: 0, max: 3 });
 
 /** Each value is assigned to exactly one attribute at character creation. */

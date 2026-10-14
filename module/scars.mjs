@@ -7,6 +7,7 @@ import { ThreatData } from "./data/threat-data.mjs";
 import { ScarsActor } from "./documents/scars-actor.mjs";
 import { ScarsItem } from "./documents/scars-item.mjs";
 import { api } from "./macros/api.mjs";
+import { onHotbarDrop } from "./macros/hotbar.mjs";
 import { activateChatCardListeners } from "./rolls/chat-cards.mjs";
 import { CrewSheet } from "./sheets/crew-sheet.mjs";
 import { ScarsItemSheet } from "./sheets/item-sheet.mjs";
@@ -21,6 +22,7 @@ Hooks.once("init", () => {
 });
 
 Hooks.on("renderChatMessageHTML", activateChatCardListeners);
+Hooks.on("hotbarDrop", onHotbarDrop);
 
 function registerDataModels() {
   Object.assign(CONFIG.Actor.dataModels, { crew: CrewData, threat: ThreatData });
