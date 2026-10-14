@@ -21,6 +21,11 @@ describe("derived-stats", () => {
     assert.equal(maxSanity(2), 12);
   });
 
+  it("adds the bonus so the maximum can go past 13", () => {
+    assert.equal(maxHitPoints(3, 4), 17);
+    assert.equal(maxSanity(3, 2), 15);
+  });
+
   it("keeps HP and Sanity between 0 and the maximum", () => {
     assert.equal(clampResource(-4, 12), 0);
     assert.equal(clampResource(0, 12), 0);

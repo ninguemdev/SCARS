@@ -1,11 +1,12 @@
 import { RESOURCE_BASE } from "../config.mjs";
 
-export function maxHitPoints(body) {
-  return RESOURCE_BASE + body;
+/** The bonus comes from items, events or the GM and lets the maximum go past 10 plus the attribute. */
+export function maxHitPoints(body, bonus = 0) {
+  return RESOURCE_BASE + body + bonus;
 }
 
-export function maxSanity(nerve) {
-  return RESOURCE_BASE + nerve;
+export function maxSanity(nerve, bonus = 0) {
+  return RESOURCE_BASE + nerve + bonus;
 }
 
 /** Keeps a current HP or Sanity value between 0 and its maximum. */
