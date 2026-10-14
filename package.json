@@ -1,0 +1,24 @@
+{
+  "name": "scars",
+  "version": "0.1.0",
+  "description": "SCARS (Space Core Anomaly RPG System) para o Foundry VTT v14.",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ninguemdev/SCARS.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "node --test \"tests/**/*.test.mjs\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0"
+  }
+}
